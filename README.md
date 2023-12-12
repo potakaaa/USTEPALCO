@@ -21,7 +21,7 @@ Programming Language: Python 3
 
 Framework: PyQt5 for GUI development
 
-Database: (Specify the database used, e.g., SQLite, MySQL)
+Database: ...
 
 ### Usage
 Login using your administrator or customer credentials.
