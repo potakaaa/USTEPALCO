@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\login_page.ui'
+# Form implementation generated from reading ui file 'login_page.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -296,4 +296,15 @@ class Ui_MainWindow(object):
         self.label_forget.setText(_translate("MainWindow", "Forget password?"))
         self.button_login.setText(_translate("MainWindow", "Login"))
         self.label_logo_text.setText(_translate("MainWindow", "USTEPALCO"))
+
 import resource_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
