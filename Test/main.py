@@ -3,7 +3,7 @@ from PyQt5 import QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from pages.login_page import Ui_MainWindow as LoginPage
 from pages.dashboard import Ui_MainWindow as DashboardPage
-
+#test
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
