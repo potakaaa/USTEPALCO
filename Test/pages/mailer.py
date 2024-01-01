@@ -2,7 +2,6 @@ from email.mime.text import MIMEText
 from pages.encrypter import HaxPass
 import smtplib, ssl
 
-
 class Mail:
     def __init__(self, subject="", content="", content_type="plain"):
         self.__email = "ustepalco@gmail.com"
@@ -14,11 +13,11 @@ class Mail:
         self.content = content
         self.content_type = content_type
 
-    def send(self, target_mail):
+    def sendto(self, target_mail):
         mail_pass = self.__passw.sh1ft()
         message = MIMEText(self.content, self.content_type)
         message["subject"] = self.subject
-        message["from"] = self.__email
+        message["from"] = "support@ustepalco.cloud"
         message["to"] = target_mail
         
         context = ssl.create_default_context()

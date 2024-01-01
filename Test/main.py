@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         seed_text = self.__seed + plaintext
         ciphertext = hashlib.sha1(seed_text.encode())
         return ciphertext.hexdigest()
-    
+
     def show_message(self, title, text, icon_type):
         msg = QMessageBox()
         msg.setIcon(icon_type)
@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
         </div>
         """
         mail = Mail(subject, content, "html")
-        mail.send("abales.anikinluk3@gmail.com")
+        mail.sendto("abales.anikinluk3@gmail.com")
 
     def page_view(self, view):
         if view == 'login':
