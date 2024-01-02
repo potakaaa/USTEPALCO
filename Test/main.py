@@ -9,8 +9,8 @@ from pages.dashboard2 import Ui_Dashboard_Window as DashboardPage
 #test
 class MainWindow(QMainWindow):
     def __init__(self):
-        self.reset_password()
-        exit()
+        self.reset_password()  # remove this later
+        exit()                  # remove this later
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
         self.__db_file = 'USTEPALCO.db'
@@ -69,7 +69,7 @@ class MainWindow(QMainWindow):
                 <div style="text-align: center;">
                     <input readonly value="{reset_code}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
                 </div>
-                <p>If you didn't request this change, please ignore this message or contact support immediately.</p>
+                <p>If you didn't request this change, please ignore this message or contact <a href="mailto:support@ustepalco.cloud">support</a> immediately.</p>
                 <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
             </div>
             </td>
