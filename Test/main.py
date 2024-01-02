@@ -70,7 +70,7 @@ class MainWindow(QMainWindow):
                     <input readonly value="{reset_code}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
                 </div>
                 <p>If you didn't request this change, please ignore this message or contact support immediately.</p>
-                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.tech"><b>USTEPALCO</b></a></p>
+                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
             </div>
             </td>
             </tr>
