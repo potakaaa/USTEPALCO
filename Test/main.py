@@ -11,22 +11,20 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
-        self.__db_file = 'USTEPALCO.db'
+        self.__db_file = self.__seed+'.db'
         self.__conn = sqlite3.connect(self.__db_file)
         self.__sql = self.__conn.cursor()
         self.__init_db()
         self.page_view('login')
+        print(self.secure_password('12345678'))
 
     def __init_db(self):
         self.__sql.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL)")
         self.__conn.commit()
 
-    def __check_login(self):
-        email = self.ui.edit_email.text()
-        text_passw = self.ui.edit_password.text()
-        hash_passw = self.secure_password(text_passw) 
-
-        self.__sql.execute("SELECT * FROM users WHERE email = ? AND password = ?;",(email, hash_passw))
+    def __check_login(self, email, password):
+        password = self.secure_password(password) 
+        self.__sql.execute("SELECT * FROM users WHERE email = ? AND password = ?;",(email, password))
         results = self.__sql.fetchall()
         return True if len(results) > 0 else False
     
@@ -48,7 +46,7 @@ class MainWindow(QMainWindow):
         OTP_Characters = list('ABCDEFGHJKLOPQRX132907')
         OTP_code = random.choices(OTP_Characters, k=OTP_Length)
         return ''.join(OTP_code)
-    
+
     def reset_password(self):
         reset_code = self.generate_otp()
         user = "admin" # temp variable example  for later use
@@ -88,7 +86,11 @@ class MainWindow(QMainWindow):
 
 
     def on_button_login_pressed(self):
-        if self.__check_login():
+        email = self.ui.edit_email.text()
+        passw = self.ui.edit_password.text()
+        if((len(passw) < 8)):
+            self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
+        elif(self.__check_login(email, passw) ):
             self.page_view('dashboard')
         else:
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
