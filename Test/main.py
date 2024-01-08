@@ -9,8 +9,6 @@ from pages.dashboard2 import Ui_Dashboard_Window as DashboardPage
 #test
 class MainWindow(QMainWindow):
     def __init__(self):
-        self.reset_password()  # remove this later
-        exit()                  # remove this later
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
         self.__db_file = 'USTEPALCO.db'
@@ -88,11 +86,13 @@ class MainWindow(QMainWindow):
 
         self.ui.setupUi(self)
 
+
     def on_button_login_pressed(self):
         if self.__check_login():
             self.page_view('dashboard')
         else:
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
