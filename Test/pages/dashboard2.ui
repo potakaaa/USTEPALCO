@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>915</width>
+    <width>922</width>
     <height>688</height>
    </rect>
   </property>
@@ -178,7 +178,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/pics/—Pngtree—lightning-icon-electric-logo_8832878.ico</pixmap>
+              <pixmap>:/pics/—Pngtree—lightning-icon-electric-logo_8832878.ico</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -225,7 +225,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/icons/ui icons/Vector123.svg</pixmap>
+              <pixmap>:/icons/ui icons/Vector123.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -266,7 +266,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/icons/ui icons/Vector.svg</pixmap>
+              <pixmap>:/icons/ui icons/Vector.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -307,7 +307,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/icons/ui icons/Icon.svg</pixmap>
+              <pixmap>:/icons/ui icons/Icon.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -348,7 +348,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/icons/ui icons/basil_invoice-solid.svg</pixmap>
+              <pixmap>:/icons/ui icons/basil_invoice-solid.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -389,7 +389,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource_rc.qrc">:/icons/ui icons/mdi_clipboard-user.svg</pixmap>
+              <pixmap>:/icons/ui icons/mdi_clipboard-user.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -452,7 +452,7 @@ QPushButton {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_1">
        <property name="font">
@@ -557,74 +557,100 @@ QPushButton {
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="dashboard_page">
        <property name="styleSheet">
         <string notr="true">QLabel {
 	color: #D0F565;
 }
 
 #pages_text2 {
-	margin-left: 20px;
-	margin-top: 10px;
+	margin-left: 7px;
 }
 
 #mainDashboard_text2 {
-	margin-left: 18px;
-}</string>
+	margin-left: 5px;
+}
+
+
+
+</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QVBoxLayout" name="header2">
-          <property name="spacing">
-           <number>0</number>
+         <widget class="QFrame" name="header">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>80</height>
+           </size>
           </property>
-          <item>
-           <widget class="QLabel" name="pages_text2">
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>DM Sans</family>
-              <pointsize>9</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Pages / Dashboard</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="mainDashboard_text2">
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>DM Sans</family>
-              <pointsize>15</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Main Dashboard</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="body2">
-            <property name="styleSheet">
-             <string notr="true">#body2 {
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>15</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="pages_text2">
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Pages / Dashboard</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="mainDashboard_text2">
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>15</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Main Dashboard</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="dashboard_body">
+          <property name="styleSheet">
+           <string notr="true">#body2 {
 	border-color: transparent;
 }
 
@@ -649,172 +675,148 @@ QFrame {
 
 
 </string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <property name="spacing">
+              <number>15</number>
+             </property>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
-               <property name="spacing">
-                <number>15</number>
-               </property>
-               <item>
-                <widget class="QFrame" name="frame_4">
-                 <property name="minimumSize">
-                  <size>
-                   <width>160</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>90</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Plain</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>160</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>90</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_6">
-                 <property name="minimumSize">
-                  <size>
-                   <width>160</width>
-                   <height>70</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>90</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Plain</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Maximum</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_9">
-               <property name="spacing">
-                <number>15</number>
-               </property>
-               <item>
-                <widget class="QFrame" name="frame_7">
-                 <property name="minimumSize">
-                  <size>
-                   <width>420</width>
-                   <height>160</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>1500</width>
-                   <height>300</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_8">
-                 <property name="minimumSize">
-                  <size>
-                   <width>230</width>
-                   <height>160</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>400</width>
-                   <height>300</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_9">
+              <widget class="QFrame" name="frame_4">
                <property name="minimumSize">
                 <size>
-                 <width>670</width>
-                 <height>100</height>
+                 <width>160</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>90</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_5">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>160</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>90</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_6">
+               <property name="minimumSize">
+                <size>
+                 <width>160</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>90</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Maximum</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <property name="spacing">
+              <number>15</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_7">
+               <property name="minimumSize">
+                <size>
+                 <width>420</width>
+                 <height>160</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
                  <width>1500</width>
-                 <height>16777215</height>
+                 <height>300</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame_8">
+               <property name="minimumSize">
+                <size>
+                 <width>230</width>
+                 <height>160</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>400</width>
+                 <height>300</height>
                 </size>
                </property>
                <property name="frameShape">
@@ -826,9 +828,484 @@ QFrame {
               </widget>
              </item>
             </layout>
-           </widget>
-          </item>
-         </layout>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_9">
+             <property name="minimumSize">
+              <size>
+               <width>670</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>1500</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="generateBill_page">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+	color: #D0F565;
+}
+
+#pages_text_3 {
+	margin-left: 7px;
+	margin-top: 4px;
+}
+
+#mainDashboard_text_3 {
+	margin-left: 5px;
+	margin-top: 3px;
+}
+
+#generateBill_frame {
+	vertical-align: top;
+	background-color: #2A2A2A;
+	border-radius: 12px;
+}
+
+
+QLineEdit {
+	border: 1px solid white;
+	border-radius: 10px;
+	background-color: transparent;
+	color: white;
+	margin: 0px 10px;
+	padding: 5px 10px;
+}
+
+QLabel {
+	margin-top: 3px;
+	margin-left: 6px;
+}
+
+#calculateBill_label {
+	margin-top: 15px;
+	margin-left: 8px;
+}
+
+#conNum_label {
+	margin-top: 12px;
+}
+
+QPushButton {
+	margin: 5px;
+	background-color: #CAFF33;
+	color: #2A2A2A;
+	border-radius: 12px;
+}
+
+QPushButton::hover {
+	background-color: #2A2A2A;
+	color: #CAFF33;
+}
+
+</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_16">
+        <property name="leftMargin">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="header_2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="pages_text_3">
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Pages / Generate</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="generateBill_text_3">
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>15</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Generate Bill</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="generateBill_body">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_17">
+           <item>
+            <widget class="QFrame" name="generateBill_frame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>400</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <widget class="QLabel" name="calculateBill_label">
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Calculate Bill</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QLabel" name="conNum_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Contract Number</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="conNum_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>ex. 926088</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QLabel" name="fullName_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Full Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="fullName_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>ex. Hans Del Mundo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item>
+                   <widget class="QLabel" name="dueDate_label">
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Due Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="dueDate_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>32</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                     </font>
+                    </property>
+                    <property name="placeholderText">
+                     <string>mm-dd-yy</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <item>
+                   <widget class="QLabel" name="pesokwh_label">
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Peso per kWh</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="pesokwh_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>32</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                     </font>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                    <property name="placeholderText">
+                     <string>₱ 0.6232</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QLabel" name="billDue_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Bill Due</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="billDue_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton">
+                  <property name="minimumSize">
+                   <size>
+                    <width>135</width>
+                    <height>47</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Print</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>135</width>
+                    <height>47</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>9</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Calculate</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::MinimumExpanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
