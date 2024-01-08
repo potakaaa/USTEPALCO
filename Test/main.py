@@ -46,7 +46,7 @@ class MainWindow(QMainWindow):
         OTP_code = random.choices(OTP_Characters, k=OTP_Length)
         return ''.join(OTP_code)
 
-    def reset_password(self):
+    def reset_password(self, email='abales.anikinluk3@gmail.com'):
         reset_code = self.generate_otp()
         user = "admin" # temp variable example  for later use
         subject = "Password reset on USTEPALCO"
@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
         </div>
         """
         mail = Mail(subject, content, "html")
-        mail.sendto("abales.anikinluk3@gmail.com")
+        mail.sendto(email)
 
     def page_view(self, view):
         if view == 'login':
@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
 
 
-if __name__ == "__main__":
+if(__name__ == "__main__"):
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
