@@ -16,7 +16,6 @@ class MainWindow(QMainWindow):
         self.__sql = self.__conn.cursor()
         self.__init_db()
         self.page_view('login')
-        print(self.secure_password('12345678'))
 
     def __init_db(self):
         self.__sql.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL)")
@@ -83,6 +82,12 @@ class MainWindow(QMainWindow):
             self.ui = DashboardPage()
 
         self.ui.setupUi(self)
+
+    def on_logout_button_pressed(self):
+        response = QMessageBox.question(self, 'Logout', 'Are you sure you want to logout?',
+        QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if response == QMessageBox.Yes:
+            self.page_view('login')
 
 
     def on_button_login_pressed(self):
