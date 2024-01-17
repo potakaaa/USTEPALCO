@@ -16,6 +16,8 @@ class MainWindow(QMainWindow):
         self.__sql = self.__conn.cursor()
         self.__init_db()
         self.page_view('login')
+        
+    
 
     def __init_db(self):
         self.__sql.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL)")
@@ -91,14 +93,23 @@ class MainWindow(QMainWindow):
 
 
     def on_button_login_pressed(self):
-        email = self.ui.edit_email.text()
+      '''  email = self.ui.edit_email.text()
         passw = self.ui.edit_password.text()
         if((len(passw) < 8)):
             self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
         elif(self.__check_login(email, passw) ):
             self.page_view('dashboard')
         else:
-            self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
+            self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)'''
+      self.page_view('dashboard')
+
+
+    # irename pod guro ning mga button rald, unsa man ning "pushButton_2"
+    def on_pushButton_2_clicked(self):
+        global p_kwh 
+        self.p_kwh = 0.6232
+        self.amountDue = self.p_kwh * 99 #placeholder
+        self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
 
 
 if(__name__ == "__main__"):
