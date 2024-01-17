@@ -1210,6 +1210,9 @@ QPushButton::hover {
                     <family>DM Sans</family>
                    </font>
                   </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                </layout>
@@ -1236,7 +1239,7 @@ QPushButton::hover {
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton">
+                 <widget class="QPushButton" name="print_button">
                   <property name="minimumSize">
                    <size>
                     <width>135</width>
@@ -1260,7 +1263,7 @@ QPushButton::hover {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButton_2">
+                 <widget class="QPushButton" name="calculate_button">
                   <property name="minimumSize">
                    <size>
                     <width>135</width>
