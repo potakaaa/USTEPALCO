@@ -179,14 +179,18 @@ class MainWindow(QMainWindow):
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
             "color: #959595; }")
 
-        self.__sql.execute("SELECT * FROM admin WHERE uid = ?",(self.__session_admin_uid,))
-        uid, admin_id, full_name, address, phone_no, email, password = self.__sql.fetchall()[0]
+        uid, admin_id, full_name, address, phone_no, email, password = self.__get_admin_data()
         self.ui.adminID_edit.setText(admin_id)
         self.ui.name_edit.setText(full_name)
         self.ui.adrress_edit.setText(address)
         self.ui.contactNo_edit.setText(phone_no)
         self.ui.email_edit.setText(email)
         self.ui.password_edit.setText("")
+    
+    def __get_admin_data(self):
+        self.__sql.execute("SELECT * FROM admin WHERE uid = ?",(self.__session_admin_uid,))
+        return self.__sql.fetchall()[0]
+
 
     def __check_login(self, email, password):
         password = self.secure_password(password) 
@@ -295,8 +299,8 @@ class MainWindow(QMainWindow):
 
 
     def on_button_login_pressed(self):
-        email = self.ui.edit_email.text()
-        passw = self.ui.edit_password.text()
+        email = self.ui.edit_email.text().strip()
+        passw = self.ui.edit_password.text().strip()
         if((len(passw) < 8)):
             self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
         elif(self.__check_login(email, passw) ):
@@ -372,6 +376,21 @@ class MainWindow(QMainWindow):
             self.ui.email_edit.setReadOnly(True)
             self.ui.password_edit.setReadOnly(True)
             self.ui.profileEdit_button.setText("Edit")
+
+            admin_data = self.__get_admin_data()
+            uid = admin_data[0]
+            admin_id = self.ui.adminID_edit.text()
+            fullname = self.ui.name_edit.text()
+            address = self.ui.adrress_edit.text()
+            contact_no = self.ui.contactNo_edit.text()
+            email = self.ui.email_edit.text()
+            password = self.ui.password_edit.text()
+            if(password.strip() == ''):
+                password = admin_data[-1]
+            else:
+                password = self.secure_password(password)
+            self.__sql.execute("UPDATE admin SET admin_id = ?, full_name = ?, address = ?, phone_no = ?, email = ?, password = ? WHERE uid = ?",(admin_id, fullname, address, contact_no, email, password, uid))
+            self.__conn.commit()
 
     def on_next_button_pressed(self):     
         nextwidg = self.ui.users_StackedWidget.currentIndex() + 1
