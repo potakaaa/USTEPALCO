@@ -407,7 +407,7 @@ QPushButton {
             <enum>Qt::PlainText</enum>
            </property>
            <property name="pixmap">
-            <pixmap resource="../resource.qrc">:/logo/resources/inverted (black bg, resized).png</pixmap>
+            <pixmap resource="../resource.qrc">:/logo/resources/hard shadow.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>false</bool>
