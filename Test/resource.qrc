@@ -1,0 +1,35 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>resources/ui icons/asdf.svg</file>
+    <file>resources/ui icons/asdfasd.svg</file>
+    <file>resources/ui icons/Vector-2.svg</file>
+    <file>resources/ui icons/basil_invoice-solid.svg</file>
+    <file>resources/ui icons/basil_invoice-solid_1.svg</file>
+    <file>resources/ui icons/Icon.svg</file>
+    <file>resources/ui icons/Icon_1.svg</file>
+    <file>resources/ui icons/mdi_clipboard-user.svg</file>
+    <file>resources/ui icons/mdi_clipboard-user_1.svg</file>
+    <file>resources/ui icons/Vector.svg</file>
+    <file>resources/ui icons/Vector_1.svg</file>
+    <file>resources/ui icons/Vector-1.svg</file>
+    <file>resources/ui icons/Vector123.svg</file>
+  </qresource>
+  <qresource prefix="logo">
+    <file>resources/hard shadow.png</file>
+    <file>resources/soft shadow.png</file>
+    <file>resources/inverted (black bg, resized).png</file>
+    <file>resources/inverted (white bg, resized).png</file>
+    <file>resources/original_00000.png</file>
+    <file>resources/logo_medium.ico</file>
+    <file>resources/logo_medium.png</file>
+    <file>resources/logo_small.ico</file>
+    <file>resources/logo_small.png</file>
+    <file>resources/—Pngtree—lightning icon electric logo_8832878.png</file>
+    <file>resources/—Pngtree—lightning-icon-electric-logo_8832878.ico</file>
+    <file>resources/stylized_00000.png</file>
+  </qresource>
+  <qresource prefix="profile">
+    <file>resources/profile/189533.png</file>
+    <file>resources/profile/woman-7531315_1280.webp</file>
+  </qresource>
+</RCC>

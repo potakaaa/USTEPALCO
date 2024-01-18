@@ -61,6 +61,12 @@
 	border-radius: 15px;
 }
 
+#sidebar QPushButton::hover {
+	background-color: #1C1C1C;
+	height: 35px;
+	border-radius: 10px;
+}
+
 QLabel {
 	color: #FFFFFF;
 }
@@ -106,7 +112,7 @@ QPushButton {
 	margin-top: 20px;
 	width: 5px;
 	height: 25px;
-	color: #FFFFFF;
+	color: #959595;
 	padding-left: 11px;
 	text-align: left;
 	background-color: transparent;
@@ -127,6 +133,8 @@ QPushButton {
 	color: #CAFF33;
 	background-color: #1C1C1C;
 }
+
+
 
 
 
@@ -476,7 +484,7 @@ QPushButton {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_1">
        <property name="font">
@@ -676,17 +684,32 @@ QPushButton {
         <item>
          <widget class="QFrame" name="dashboard_body">
           <property name="styleSheet">
-           <string notr="true">#body2 {
+           <string notr="true">#dashboard_body {
+
+}
+
+#body2 {
 	border-color: transparent;
 }
 
 QFrame {
-	border: 1px solid #D0F565;
 	border-radius: 20px;
 }
 
 #frame_4, #frame_5, #frame_6 {
-	margin: 10px 2px 3px 10px;
+	background-color: #2A2A2A;
+	border-radius: 40px;
+	margin: 5px 0px;
+}
+
+#dashboardUsers_label, #dashboardPayment_label  {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+#dashboardUsers_count, #dashboardPayment_count  {
+	margin-bottom: 10px;
+	
 }
 
 #frame_7, #frame_8 {
@@ -694,8 +717,32 @@ QFrame {
 }
 
 #frame_9 {
-	margin: 10px 5px 10px 10px;
+	background-color: #2A2A2A;
+	border-radius: 40px;
+	margin: 5px 10px;
 }
+
+QPushButton {
+	height: 80px;
+	font-family: DM Sans;
+	font-weight: bold;
+	font-size: 30px;
+	color: #1C1C1C;
+	background-color: #CAFF33;
+	border-radius: 30px;
+	margin: 0px 20px;
+}
+
+#calendarWidget {
+	background-color: lightgreen;
+}
+
+#description {
+	color: #CEEE70;
+}
+
+
+
 
 
 
@@ -716,6 +763,12 @@ QFrame {
              </property>
              <item>
               <widget class="QFrame" name="frame_4">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>160</width>
@@ -724,8 +777,8 @@ QFrame {
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>16777215</width>
-                 <height>90</height>
+                 <width>400</width>
+                 <height>130</height>
                 </size>
                </property>
                <property name="frameShape">
@@ -734,12 +787,83 @@ QFrame {
                <property name="frameShadow">
                 <enum>QFrame::Plain</enum>
                </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_24">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QLabel" name="dashboardUsers_icon">
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../resource.qrc">:/icons/resources/ui icons/asdf.svg</pixmap>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_41">
+                    <item>
+                     <widget class="QLabel" name="dashboardUsers_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>DM Sans Medium</family>
+                        <pointsize>13</pointsize>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Total Users</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="dashboardUsers_count">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>DM Sans</family>
+                        <pointsize>25</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>50</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
               <widget class="QFrame" name="frame_5">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -752,8 +876,8 @@ QFrame {
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>16777215</width>
-                 <height>90</height>
+                 <width>400</width>
+                 <height>130</height>
                 </size>
                </property>
                <property name="frameShape">
@@ -762,28 +886,80 @@ QFrame {
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_6">
-               <property name="minimumSize">
-                <size>
-                 <width>160</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Plain</enum>
-               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_31">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_25">
+                  <item>
+                   <widget class="QLabel" name="dashboardPayment_logo">
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>70</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="../resource.qrc">:/icons/resources/ui icons/asdfasd.svg</pixmap>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_42">
+                    <item>
+                     <widget class="QLabel" name="dashboardPayment_label">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>DM Sans Medium</family>
+                        <pointsize>13</pointsize>
+                        <weight>50</weight>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Total Payments</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="dashboardPayment_count">
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>50</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>DM Sans</family>
+                        <pointsize>25</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>₱ 50, 000</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
              </item>
              <item>
@@ -792,66 +968,15 @@ QFrame {
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
+                 <width>70</width>
                  <height>20</height>
                 </size>
                </property>
               </spacer>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_9">
-             <property name="spacing">
-              <number>15</number>
-             </property>
-             <item>
-              <widget class="QFrame" name="frame_7">
-               <property name="minimumSize">
-                <size>
-                 <width>420</width>
-                 <height>160</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>1500</width>
-                 <height>300</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_8">
-               <property name="minimumSize">
-                <size>
-                 <width>230</width>
-                 <height>160</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>400</width>
-                 <height>300</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
@@ -869,12 +994,103 @@ QFrame {
                <height>16777215</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
+             <layout class="QVBoxLayout" name="verticalLayout_43">
+              <item>
+               <spacer name="verticalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="welcometo_label">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>35</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Welcome to</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="USTEPALCO_label">
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>70</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>USTEPALCO!</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="description">
+                <property name="font">
+                 <font>
+                  <family>DM Sans Medium</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>An Electric Billing System built in Python and PyQt5 - empowering USTP 
+students to ditch paper bills and long lines, offering convenient online access to 
+manage their electricity usage, billing details, and payments.</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -885,7 +1101,7 @@ QFrame {
       <widget class="QWidget" name="reports_page">
        <property name="styleSheet">
         <string notr="true">QLabel {
-	color: #CAFF33;
+	color: #D0F565;
 }
 
 #reports_body {
@@ -917,7 +1133,7 @@ QFrame {
           </property>
           <property name="styleSheet">
            <string notr="true">QLabel {
-	color: #CAFF33;
+color: #D0F565;
 }
 
 #pages_text_6 {
@@ -2960,6 +3176,13 @@ QPushButton::hover {
 	background-color: #CAFF33;
 	margin: 12px;
 	border-radius: 25px;
+}
+
+
+#profile_body {
+	background-color: #2A2A2A;
+	border-radius: 40px;
+	margin: 5px 10px;
 }
 
 #profile_label {

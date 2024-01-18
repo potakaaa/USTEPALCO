@@ -44,6 +44,12 @@ class Ui_Dashboard_Window(object):
 "    border-radius: 15px;\n"
 "}\n"
 "\n"
+"#sidebar QPushButton::hover {\n"
+"    background-color: #1C1C1C;\n"
+"    height: 35px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
 "QLabel {\n"
 "    color: #FFFFFF;\n"
 "}\n"
@@ -89,7 +95,7 @@ class Ui_Dashboard_Window(object):
 "    margin-top: 20px;\n"
 "    width: 5px;\n"
 "    height: 25px;\n"
-"    color: #FFFFFF;\n"
+"    color: #959595;\n"
 "    padding-left: 11px;\n"
 "    text-align: left;\n"
 "    background-color: transparent;\n"
@@ -110,6 +116,8 @@ class Ui_Dashboard_Window(object):
 "    color: #CAFF33;\n"
 "    background-color: #1C1C1C;\n"
 "}\n"
+"\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -389,17 +397,32 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_5.addLayout(self.verticalLayout_4)
         self.verticalLayout_6.addWidget(self.header)
         self.dashboard_body = QtWidgets.QFrame(self.dashboard_page)
-        self.dashboard_body.setStyleSheet("#body2 {\n"
+        self.dashboard_body.setStyleSheet("#dashboard_body {\n"
+"\n"
+"}\n"
+"\n"
+"#body2 {\n"
 "    border-color: transparent;\n"
 "}\n"
 "\n"
 "QFrame {\n"
-"    border: 1px solid #D0F565;\n"
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
 "#frame_4, #frame_5, #frame_6 {\n"
-"    margin: 10px 2px 3px 10px;\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 0px;\n"
+"}\n"
+"\n"
+"#dashboardUsers_label, #dashboardPayment_label  {\n"
+"    margin-top: 10px;\n"
+"    margin-left: 5px;\n"
+"}\n"
+"\n"
+"#dashboardUsers_count, #dashboardPayment_count  {\n"
+"    margin-bottom: 10px;\n"
+"    \n"
 "}\n"
 "\n"
 "#frame_7, #frame_8 {\n"
@@ -407,8 +430,32 @@ class Ui_Dashboard_Window(object):
 "}\n"
 "\n"
 "#frame_9 {\n"
-"    margin: 10px 5px 10px 10px;\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 10px;\n"
 "}\n"
+"\n"
+"QPushButton {\n"
+"    height: 80px;\n"
+"    font-family: DM Sans;\n"
+"    font-weight: bold;\n"
+"    font-size: 30px;\n"
+"    color: #1C1C1C;\n"
+"    background-color: #CAFF33;\n"
+"    border-radius: 30px;\n"
+"    margin: 0px 20px;\n"
+"}\n"
+"\n"
+"#calendarWidget {\n"
+"    background-color: lightgreen;\n"
+"}\n"
+"\n"
+"#description {\n"
+"    color: #CEEE70;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -423,64 +470,151 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_8.setSpacing(15)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
         self.frame_4 = QtWidgets.QFrame(self.dashboard_body)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy)
         self.frame_4.setMinimumSize(QtCore.QSize(160, 50))
-        self.frame_4.setMaximumSize(QtCore.QSize(16777215, 90))
+        self.frame_4.setMaximumSize(QtCore.QSize(400, 130))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_4.setObjectName("frame_4")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.frame_4)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
+        self.dashboardUsers_icon = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_icon.setMaximumSize(QtCore.QSize(70, 70))
+        self.dashboardUsers_icon.setText("")
+        self.dashboardUsers_icon.setPixmap(QtGui.QPixmap(":/icons/resources/ui icons/asdf.svg"))
+        self.dashboardUsers_icon.setAlignment(QtCore.Qt.AlignCenter)
+        self.dashboardUsers_icon.setObjectName("dashboardUsers_icon")
+        self.horizontalLayout_9.addWidget(self.dashboardUsers_icon)
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.dashboardUsers_label = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_label.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        self.dashboardUsers_label.setFont(font)
+        self.dashboardUsers_label.setObjectName("dashboardUsers_label")
+        self.verticalLayout_41.addWidget(self.dashboardUsers_label)
+        self.dashboardUsers_count = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_count.setMaximumSize(QtCore.QSize(16777215, 50))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(25)
+        font.setBold(True)
+        font.setWeight(75)
+        self.dashboardUsers_count.setFont(font)
+        self.dashboardUsers_count.setObjectName("dashboardUsers_count")
+        self.verticalLayout_41.addWidget(self.dashboardUsers_count)
+        self.horizontalLayout_9.addLayout(self.verticalLayout_41)
+        self.horizontalLayout_24.addLayout(self.horizontalLayout_9)
         self.horizontalLayout_8.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(self.dashboard_body)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
         self.frame_5.setSizePolicy(sizePolicy)
         self.frame_5.setMinimumSize(QtCore.QSize(160, 70))
-        self.frame_5.setMaximumSize(QtCore.QSize(16777215, 90))
+        self.frame_5.setMaximumSize(QtCore.QSize(400, 130))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
+        self.horizontalLayout_31 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_31.setSpacing(0)
+        self.horizontalLayout_31.setObjectName("horizontalLayout_31")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.dashboardPayment_logo = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_logo.setMaximumSize(QtCore.QSize(70, 70))
+        self.dashboardPayment_logo.setText("")
+        self.dashboardPayment_logo.setPixmap(QtGui.QPixmap(":/icons/resources/ui icons/asdfasd.svg"))
+        self.dashboardPayment_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.dashboardPayment_logo.setObjectName("dashboardPayment_logo")
+        self.horizontalLayout_25.addWidget(self.dashboardPayment_logo)
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.dashboardPayment_label = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_label.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        self.dashboardPayment_label.setFont(font)
+        self.dashboardPayment_label.setObjectName("dashboardPayment_label")
+        self.verticalLayout_42.addWidget(self.dashboardPayment_label)
+        self.dashboardPayment_count = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_count.setMaximumSize(QtCore.QSize(16777215, 50))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(25)
+        font.setBold(True)
+        font.setWeight(75)
+        self.dashboardPayment_count.setFont(font)
+        self.dashboardPayment_count.setObjectName("dashboardPayment_count")
+        self.verticalLayout_42.addWidget(self.dashboardPayment_count)
+        self.horizontalLayout_25.addLayout(self.verticalLayout_42)
+        self.horizontalLayout_31.addLayout(self.horizontalLayout_25)
         self.horizontalLayout_8.addWidget(self.frame_5)
-        self.frame_6 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_6.setMinimumSize(QtCore.QSize(160, 70))
-        self.frame_6.setMaximumSize(QtCore.QSize(16777215, 90))
-        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.frame_6.setObjectName("frame_6")
-        self.horizontalLayout_8.addWidget(self.frame_6)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_8.addItem(spacerItem1)
         self.verticalLayout_3.addLayout(self.horizontalLayout_8)
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_9.setSpacing(15)
-        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.frame_7 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_7.setMinimumSize(QtCore.QSize(420, 160))
-        self.frame_7.setMaximumSize(QtCore.QSize(1500, 300))
-        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_7.setObjectName("frame_7")
-        self.horizontalLayout_9.addWidget(self.frame_7)
-        self.frame_8 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_8.setMinimumSize(QtCore.QSize(230, 160))
-        self.frame_8.setMaximumSize(QtCore.QSize(400, 300))
-        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_8.setObjectName("frame_8")
-        self.horizontalLayout_9.addWidget(self.frame_8)
-        self.verticalLayout_3.addLayout(self.horizontalLayout_9)
         self.frame_9 = QtWidgets.QFrame(self.dashboard_body)
         self.frame_9.setMinimumSize(QtCore.QSize(670, 100))
         self.frame_9.setMaximumSize(QtCore.QSize(1500, 16777215))
+        self.frame_9.setStyleSheet("")
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.frame_9)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_43.addItem(spacerItem2)
+        self.welcometo_label = QtWidgets.QLabel(self.frame_9)
+        self.welcometo_label.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(35)
+        font.setBold(True)
+        font.setWeight(75)
+        self.welcometo_label.setFont(font)
+        self.welcometo_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.welcometo_label.setObjectName("welcometo_label")
+        self.verticalLayout_43.addWidget(self.welcometo_label)
+        self.USTEPALCO_label = QtWidgets.QLabel(self.frame_9)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(70)
+        font.setBold(True)
+        font.setWeight(75)
+        self.USTEPALCO_label.setFont(font)
+        self.USTEPALCO_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.USTEPALCO_label.setObjectName("USTEPALCO_label")
+        self.verticalLayout_43.addWidget(self.USTEPALCO_label)
+        self.description = QtWidgets.QLabel(self.frame_9)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(12)
+        self.description.setFont(font)
+        self.description.setAlignment(QtCore.Qt.AlignCenter)
+        self.description.setObjectName("description")
+        self.verticalLayout_43.addWidget(self.description)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_43.addItem(spacerItem3)
         self.verticalLayout_3.addWidget(self.frame_9)
         self.verticalLayout_6.addWidget(self.dashboard_body)
         self.stackedWidget.addWidget(self.dashboard_page)
         self.reports_page = QtWidgets.QWidget()
         self.reports_page.setStyleSheet("QLabel {\n"
-"    color: #CAFF33;\n"
+"    color: #D0F565;\n"
 "}\n"
 "\n"
 "#reports_body {\n"
@@ -506,7 +640,7 @@ class Ui_Dashboard_Window(object):
         self.header_5 = QtWidgets.QFrame(self.reports_page)
         self.header_5.setMaximumSize(QtCore.QSize(16777215, 80))
         self.header_5.setStyleSheet("QLabel {\n"
-"    color: #CAFF33;\n"
+"color: #D0F565;\n"
 "}\n"
 "\n"
 "#pages_text_6 {\n"
@@ -775,8 +909,8 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_40.addWidget(self.reports_list)
         self.verticalLayout_39.addWidget(self.reports_body2)
         self.verticalLayout_38.addWidget(self.reports_body)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.verticalLayout_38.addItem(spacerItem2)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_38.addItem(spacerItem4)
         self.stackedWidget.addWidget(self.reports_page)
         self.manage_page = QtWidgets.QWidget()
         self.manage_page.setStyleSheet("#pages_text_5 {\n"
@@ -1257,8 +1391,8 @@ class Ui_Dashboard_Window(object):
         self.nextButton_frame.setObjectName("nextButton_frame")
         self.horizontalLayout_21 = QtWidgets.QHBoxLayout(self.nextButton_frame)
         self.horizontalLayout_21.setObjectName("horizontalLayout_21")
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_21.addItem(spacerItem3)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_21.addItem(spacerItem5)
         self.next_button = QtWidgets.QPushButton(self.nextButton_frame)
         self.next_button.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
@@ -1271,8 +1405,8 @@ class Ui_Dashboard_Window(object):
         self.next_button.setObjectName("next_button")
         self.horizontalLayout_21.addWidget(self.next_button)
         self.verticalLayout_32.addWidget(self.nextButton_frame)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.verticalLayout_32.addItem(spacerItem4)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_32.addItem(spacerItem6)
         self.verticalLayout_33.addWidget(self.manage_body)
         self.stackedWidget.addWidget(self.manage_page)
         self.generateBill_page = QtWidgets.QWidget()
@@ -1503,8 +1637,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setContentsMargins(-1, 10, -1, -1)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_11.addItem(spacerItem5)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_11.addItem(spacerItem7)
         self.print_button = QtWidgets.QPushButton(self.generateBill_frame)
         self.print_button.setMinimumSize(QtCore.QSize(135, 47))
         font = QtGui.QFont()
@@ -1529,8 +1663,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11.addWidget(self.calculate_button)
         self.verticalLayout_15.addLayout(self.horizontalLayout_11)
         self.verticalLayout_17.addWidget(self.generateBill_frame)
-        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
-        self.verticalLayout_17.addItem(spacerItem6)
+        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
+        self.verticalLayout_17.addItem(spacerItem8)
         self.verticalLayout_16.addWidget(self.generateBill_body)
         self.stackedWidget.addWidget(self.generateBill_page)
         self.profile_page = QtWidgets.QWidget()
@@ -1550,6 +1684,13 @@ class Ui_Dashboard_Window(object):
 "    background-color: #CAFF33;\n"
 "    margin: 12px;\n"
 "    border-radius: 25px;\n"
+"}\n"
+"\n"
+"\n"
+"#profile_body {\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 10px;\n"
 "}\n"
 "\n"
 "#profile_label {\n"
@@ -1865,8 +2006,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_19.addWidget(self.password_edit)
         self.verticalLayout_22.addLayout(self.horizontalLayout_19)
         self.horizontalLayout_20.addLayout(self.verticalLayout_22)
-        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem7)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem9)
         self.profileEdit_button = QtWidgets.QPushButton(self.profile_footer)
         self.profileEdit_button.setMinimumSize(QtCore.QSize(100, 40))
         self.profileEdit_button.setMaximumSize(QtCore.QSize(130, 16777215))
@@ -1879,8 +2020,8 @@ class Ui_Dashboard_Window(object):
         self.profileEdit_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.profileEdit_button.setObjectName("profileEdit_button")
         self.horizontalLayout_20.addWidget(self.profileEdit_button)
-        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem8)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem10)
         self.verticalLayout_23.addWidget(self.profile_footer)
         self.verticalLayout_24.addLayout(self.verticalLayout_23)
         self.verticalLayout_26.addWidget(self.profile_body_2)
@@ -1891,7 +2032,7 @@ class Ui_Dashboard_Window(object):
         Dashboard_Window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Dashboard_Window)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.users_StackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
@@ -1910,6 +2051,15 @@ class Ui_Dashboard_Window(object):
         self.label_3.setText(_translate("Dashboard_Window", "Merry Christmas!!!"))
         self.pages_text2.setText(_translate("Dashboard_Window", "Pages / Dashboard"))
         self.mainDashboard_text2.setText(_translate("Dashboard_Window", "Main Dashboard"))
+        self.dashboardUsers_label.setText(_translate("Dashboard_Window", "Total Users"))
+        self.dashboardUsers_count.setText(_translate("Dashboard_Window", "50"))
+        self.dashboardPayment_label.setText(_translate("Dashboard_Window", "Total Payments"))
+        self.dashboardPayment_count.setText(_translate("Dashboard_Window", "₱ 50, 000"))
+        self.welcometo_label.setText(_translate("Dashboard_Window", "Welcome to"))
+        self.USTEPALCO_label.setText(_translate("Dashboard_Window", "USTEPALCO!"))
+        self.description.setText(_translate("Dashboard_Window", "An Electric Billing System built in Python and PyQt5 - empowering USTP \n"
+"students to ditch paper bills and long lines, offering convenient online access to \n"
+"manage their electricity usage, billing details, and payments."))
         self.pages_text_6.setText(_translate("Dashboard_Window", "Pages / Reports"))
         self.mainDashboard_text_6.setText(_translate("Dashboard_Window", "Reports"))
         self.paymentDetails_label.setText(_translate("Dashboard_Window", "Payment Details"))

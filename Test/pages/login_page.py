@@ -261,7 +261,7 @@ class Ui_MainWindow(object):
         self.label_logo.setMinimumSize(QtCore.QSize(50, 0))
         self.label_logo.setText("")
         self.label_logo.setTextFormat(QtCore.Qt.PlainText)
-        self.label_logo.setPixmap(QtGui.QPixmap(":/logo/resources/inverted (black bg, resized).png"))
+        self.label_logo.setPixmap(QtGui.QPixmap(":/logo/resources/hard shadow.png"))
         self.label_logo.setScaledContents(False)
         self.label_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.label_logo.setWordWrap(False)
