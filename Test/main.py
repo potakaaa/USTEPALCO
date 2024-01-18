@@ -6,12 +6,12 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from pages.login_page import Ui_MainWindow as LoginPage
 from pages.dashboard2 import Ui_Dashboard_Window as DashboardPage
 
-#test
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
-        self.__db_file = "USTEPALCO//Test//USTEPALCO.db"
+        self.__db_file = "USTEPALCO.db"
         self.__conn = sqlite3.connect(self.__db_file)
         self.__sql = self.__conn.cursor()
         self.page_view('login')
@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
                     self.ui.row3_contractNo_3, self.ui.row4_contractNo, self.ui.row4_contractNo_2, self.ui.row4_contractNo_3,
                     self.ui.row5_contractNo, self.ui.row5_contractNo_2, self.ui.row5_contractNo_3, self.ui.row6_contractNo, 
                     self.ui.row6_contractNo_2, self.ui.row6_contractNo_3]
-            
+
         self.__amount = [self.ui.row1_amount, self.ui.row1_amount_2, self.ui.row1_amount_3, self.ui.row2_amount, 
                     self.ui.row2_amount_2, self.ui.row2_amount_3, self.ui.row3_amount, self.ui.row3_amount_2, 
                     self.ui.row3_amount_3, self.ui.row4_amount, self.ui.row4_amount_2, self.ui.row4_amount_3,
@@ -199,6 +199,15 @@ class MainWindow(QMainWindow):
         if(len(results) > 0):
             return True
         return False
+
+    def __get_user_usage(self, contract_no, fullname):
+        self.__sql.execute("SELECT pd.usage FROM payment_det pd JOIN users u ON pd.uid = u.uid WHERE u.contract_no = ? AND u.full_name = ?", (contract_no, fullname ))
+        results = self.__sql.fetchall()
+        if(len(results) > 0):
+            return results[0][0]
+
+        self.show_message("ERROR", "Invalid contract number!", QMessageBox.Warning)
+        return 0
     
     def secure_password(self, plaintext):
         seed_text = self.__seed + plaintext
@@ -285,17 +294,14 @@ class MainWindow(QMainWindow):
             self.show_message("ERROR", "Please enter your email for password reset!", QMessageBox.Warning)
             return
         self.reset_password(email)
-        
 
+    def on_calculate_button_pressed(self):
+        contract_no = self.ui.conNum_edit.text().strip()
+        fullname = self.ui.fullName_edit.text().strip()
+        usage = self.__get_user_usage(contract_no, fullname)
 
-    # irename pod guro ning mga button rald, unsa man ning "pushButton_2"
-    def on_pushButton_2_clicked(self):
-
-        self.amountDue = self.p_kwh * 99 #placeholder
+        self.amountDue = self.p_kwh * usage
         self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
-
-
-        
 
     def on_profileEdit_button_pressed(self):
         self.ui.profileEdit_button.setCheckable(True)
@@ -325,9 +331,6 @@ class MainWindow(QMainWindow):
             self.ui.users_StackedWidget.setCurrentIndex(nextwidg)
         else:
             self.ui.users_StackedWidget.setCurrentIndex(0)
-        
-        
-
         
         
 if(__name__ == "__main__"):
