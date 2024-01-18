@@ -44,6 +44,12 @@ class Ui_Dashboard_Window(object):
 "    border-radius: 15px;\n"
 "}\n"
 "\n"
+"#sidebar QPushButton::hover {\n"
+"    background-color: #1C1C1C;\n"
+"    height: 35px;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
 "QLabel {\n"
 "    color: #FFFFFF;\n"
 "}\n"
@@ -2026,7 +2032,7 @@ class Ui_Dashboard_Window(object):
         Dashboard_Window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Dashboard_Window)
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(0)
         self.users_StackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
