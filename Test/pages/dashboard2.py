@@ -517,6 +517,10 @@ class Ui_Dashboard_Window(object):
 "    \n"
 "}\n"
 "\n"
+"#profile_footer QLineEdit::focus {\n"
+"    border: 1px solid white;\n"
+"}\n"
+"\n"
 "#adminID_label {\n"
 "    margin-right: 20px;\n"
 "}\n"
@@ -542,12 +546,16 @@ class Ui_Dashboard_Window(object):
 "}\n"
 "\n"
 "#profileEdit_button {\n"
-"    height: 25px;\n"
 "    background-color: #CAFF33;\n"
 "    color: #232325;\n"
+"    border-radius: 15px;\n"
 "\n"
-"}"
-)
+"}\n"
+"\n"
+"#profileEdit_button::hover {\n"
+"    background-color: #2B2B2B;\n"
+"    color: #CAFF33;\n"
+"}")
         self.profile_page.setObjectName("profile_page")
         self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.profile_page)
         self.verticalLayout_30.setObjectName("verticalLayout_30")
@@ -799,8 +807,16 @@ class Ui_Dashboard_Window(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_20.addItem(spacerItem2)
         self.profileEdit_button = QtWidgets.QPushButton(self.profile_footer)
+        self.profileEdit_button.setMinimumSize(QtCore.QSize(100, 40))
+        self.profileEdit_button.setMaximumSize(QtCore.QSize(130, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.profileEdit_button.setFont(font)
+        self.profileEdit_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.profileEdit_button.setObjectName("profileEdit_button")
-        self.profileEdit_button.setCheckable(True) #allows the same button to be both Edit and Done
         self.horizontalLayout_20.addWidget(self.profileEdit_button)
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_20.addItem(spacerItem3)
