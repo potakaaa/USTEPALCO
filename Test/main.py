@@ -19,83 +19,6 @@ class MainWindow(QMainWindow):
         self.p_kwh = 11.3997
 
 
-
-    def __check_login(self, email, password):
-        password = self.secure_password(password) 
-        self.__sql.execute("SELECT * FROM admin WHERE email = ? AND password = ?;",(email, password))
-        results = self.__sql.fetchall()
-        status = False # False default status means user not exists
-        if(len(results) > 0):
-            self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
-            self.__session_username = results[0][5] # Store the user email in session username.
-            status = True # Status change value to True if user exists
-
-        return status
-    
-    def __update_password(self, new_password, email):
-        new_password = self.secure_password(new_password)
-        self.__sql.execute("UPDATE admin SET password = ? WHERE email = ?", (new_password, email))
-        self.__conn.commit()
-    
-    def __is_Email_Exists(self, email):
-        self.__sql.execute("SELECT * FROM admin WHERE email = ?", (email,))
-        results = self.__sql.fetchall()
-        if(len(results) > 0):
-            return True
-        return False
-    
-    def secure_password(self, plaintext):
-        seed_text = self.__seed + plaintext
-        ciphertext = hashlib.sha1(seed_text.encode())
-        return ciphertext.hexdigest()
-
-    def show_message(self, title, text, icon_type):
-        msg = QMessageBox()
-        msg.setIcon(icon_type)
-        msg.setWindowTitle(title)
-        msg.setWindowIcon(QtGui.QIcon('icon.png'))
-        msg.setText(text)
-        msg.exec_()
-
-    def generate_otp(self):
-        OTP_Length = 6
-        OTP_Characters = list('ABCDEFGHJKLOPQRX132907')
-        OTP_code = random.choices(OTP_Characters, k=OTP_Length)
-        return ''.join(OTP_code)
-
-    def reset_password(self, email='abales.anikinluk3@gmail.com'):
-        if(self.__is_Email_Exists(email) == False):
-            return
-        temporary_password = self.generate_otp()
-        user = (email.split("@")[0]).title()
-
-        subject = "Password reset on USTEPALCO"
-        content = f"""
-        <div>
-        <table style="width:100%; height: 40vh; font-size:14px; background-color: rgb(0,0,0,0.1); display:flex; align-items:center; justify-content: center;">
-            <tr>
-            <td>
-            <div style="min-width:350px; font-family: sans-serif; background-color: rgb(255,255,255,0.6); padding:10px; border-radius:10px; box-shadow:0px 0px 5px 1px rgb(0,0,0,0.2);">
-                <h2 style="font-family: sans-serif; text-align: center;">TEMPORARY PASSWORD</h2>
-                <p>
-                    Hey {user},<br>
-                    A password reset was requested for your account. Below is your temporary password:
-                </p>
-                <div style="text-align: center;">
-                    <input readonly value="{temporary_password}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
-                </div>
-                <p>If you didn't request this change, please ignore this message or contact <a href="mailto:support@ustepalco.cloud">support</a> immediately.</p>
-                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
-            </div>
-            </td>
-            </tr>
-        </table>
-        </div>
-        """
-        mail = Mail(subject, content, "html")
-        mail.sendto(email)
-        self.__update_password(temporary_password, email)
-
     def on_dashboard_button_pressed(self):
         self.ui.stackedWidget.setCurrentIndex(1)
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
@@ -253,6 +176,81 @@ class MainWindow(QMainWindow):
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
             "color: #959595; }")   
 
+    def __check_login(self, email, password):
+        password = self.secure_password(password) 
+        self.__sql.execute("SELECT * FROM admin WHERE email = ? AND password = ?;",(email, password))
+        results = self.__sql.fetchall()
+        status = False # False default status means user not exists
+        if(len(results) > 0):
+            self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
+            self.__session_username = results[0][5] # Store the user email in session username.
+            status = True # Status change value to True if user exists
+
+        return status
+    
+    def __update_password(self, new_password, email):
+        new_password = self.secure_password(new_password)
+        self.__sql.execute("UPDATE admin SET password = ? WHERE email = ?", (new_password, email))
+        self.__conn.commit()
+    
+    def __is_Email_Exists(self, email):
+        self.__sql.execute("SELECT * FROM admin WHERE email = ?", (email,))
+        results = self.__sql.fetchall()
+        if(len(results) > 0):
+            return True
+        return False
+    
+    def secure_password(self, plaintext):
+        seed_text = self.__seed + plaintext
+        ciphertext = hashlib.sha1(seed_text.encode())
+        return ciphertext.hexdigest()
+
+    def show_message(self, title, text, icon_type):
+        msg = QMessageBox()
+        msg.setIcon(icon_type)
+        msg.setWindowTitle(title)
+        msg.setWindowIcon(QtGui.QIcon('icon.png'))
+        msg.setText(text)
+        msg.exec_()
+
+    def generate_otp(self):
+        OTP_Length = 6
+        OTP_Characters = list('ABCDEFGHJKLOPQRX132907')
+        OTP_code = random.choices(OTP_Characters, k=OTP_Length)
+        return ''.join(OTP_code)
+
+    def reset_password(self, email='abales.anikinluk3@gmail.com'):
+        if(self.__is_Email_Exists(email) == False):
+            return
+        temporary_password = self.generate_otp()
+        user = (email.split("@")[0]).title()
+
+        subject = "Password reset on USTEPALCO"
+        content = f"""
+        <div>
+        <table style="width:100%; height: 40vh; font-size:14px; background-color: rgb(0,0,0,0.1); display:flex; align-items:center; justify-content: center;">
+            <tr>
+            <td>
+            <div style="min-width:350px; font-family: sans-serif; background-color: rgb(255,255,255,0.6); padding:10px; border-radius:10px; box-shadow:0px 0px 5px 1px rgb(0,0,0,0.2);">
+                <h2 style="font-family: sans-serif; text-align: center;">TEMPORARY PASSWORD</h2>
+                <p>
+                    Hey {user},<br>
+                    A password reset was requested for your account. Below is your temporary password:
+                </p>
+                <div style="text-align: center;">
+                    <input readonly value="{temporary_password}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
+                </div>
+                <p>If you didn't request this change, please ignore this message or contact <a href="mailto:support@ustepalco.cloud">support</a> immediately.</p>
+                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
+            </div>
+            </td>
+            </tr>
+        </table>
+        </div>
+        """
+        mail = Mail(subject, content, "html")
+        mail.sendto(email)
+        self.__update_password(temporary_password, email)
 
     def page_view(self, view):
         if view == 'login':
@@ -280,13 +278,15 @@ class MainWindow(QMainWindow):
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)'''
 
         self.page_view('dashboard')
-        
+    
     def on_forget_button_pressed(self):
         email = self.ui.edit_email.text()
         if(email.strip() == ''):
             self.show_message("ERROR", "Please enter your email for password reset!", QMessageBox.Warning)
             return
         self.reset_password(email)
+        
+
 
     # irename pod guro ning mga button rald, unsa man ning "pushButton_2"
     def on_pushButton_2_clicked(self):
