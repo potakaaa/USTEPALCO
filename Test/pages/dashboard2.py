@@ -495,9 +495,29 @@ class Ui_Dashboard_Window(object):
 "    color: #D0F565;\n"
 "}\n"
 "\n"
-"#usersAddress_label {\n"
-"    color: #9A9A9A;\n"
+"#userDetails_label {\n"
+"    margin: 5px;\n"
 "}\n"
+"\n"
+"#users_StackedWidget QLabel {\n"
+"    qproperty-alignment: AlignCenter;\n"
+"    \n"
+"}\n"
+"\n"
+"#next_button {\n"
+"    color: #1C1C1C;\n"
+"    background-color: #CAFF33;\n"
+"    border-radius: 10px;\n"
+"    width: 150px;\n"
+"    height: 37px;\n"
+"}\n"
+"\n"
+"#next_button::hover {\n"
+"    color: #CAFF33;\n"
+"    background-color: #2A2A2A;\n"
+"}\n"
+"\n"
+"\n"
 "")
         self.manage_page.setObjectName("manage_page")
         self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.manage_page)
@@ -535,7 +555,33 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_10.addLayout(self.verticalLayout_18)
         self.verticalLayout_33.addWidget(self.header_4)
         self.manage_body = QtWidgets.QFrame(self.manage_page)
-        self.manage_body.setStyleSheet("\n"
+        self.manage_body.setStyleSheet("#usersName_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersAddress_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersContractNo_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-right: 10px;\n"
+"    margin-top: 8px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersAmount_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
 "\n"
 "")
         self.manage_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -554,24 +600,43 @@ class Ui_Dashboard_Window(object):
         self.userDetails_label = QtWidgets.QLabel(self.manage_body2)
         font = QtGui.QFont()
         font.setFamily("DM Sans")
-        font.setPointSize(13)
+        font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.userDetails_label.setFont(font)
         self.userDetails_label.setObjectName("userDetails_label")
         self.verticalLayout_31.addWidget(self.userDetails_label)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_12.setContentsMargins(0, -1, -1, -1)
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
         self.usersName_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersName_label.setFont(font)
         self.usersName_label.setObjectName("usersName_label")
         self.horizontalLayout_12.addWidget(self.usersName_label)
         self.usersAddress_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.usersAddress_label.setFont(font)
         self.usersAddress_label.setObjectName("usersAddress_label")
         self.horizontalLayout_12.addWidget(self.usersAddress_label)
         self.usersContractNo_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersContractNo_label.setFont(font)
         self.usersContractNo_label.setObjectName("usersContractNo_label")
         self.horizontalLayout_12.addWidget(self.usersContractNo_label)
         self.usersAmount_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersAmount_label.setFont(font)
         self.usersAmount_label.setObjectName("usersAmount_label")
         self.horizontalLayout_12.addWidget(self.usersAmount_label)
         self.verticalLayout_31.addLayout(self.horizontalLayout_12)
@@ -581,6 +646,11 @@ class Ui_Dashboard_Window(object):
         self.line.setObjectName("line")
         self.verticalLayout_31.addWidget(self.line)
         self.users_StackedWidget = QtWidgets.QStackedWidget(self.manage_body2)
+        self.users_StackedWidget.setStyleSheet("QLabel {\n"
+"    font-family: DM Sans;\n"
+"    font-weight: bold;\n"
+"    font-size: 12px;\n"
+"}")
         self.users_StackedWidget.setObjectName("users_StackedWidget")
         self.usersThird_page = QtWidgets.QWidget()
         self.usersThird_page.setObjectName("usersThird_page")
@@ -680,6 +750,8 @@ class Ui_Dashboard_Window(object):
         self.usersFirst_page = QtWidgets.QWidget()
         self.usersFirst_page.setObjectName("usersFirst_page")
         self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.usersFirst_page)
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_27.setSpacing(0)
         self.verticalLayout_27.setObjectName("verticalLayout_27")
         self.horizontalLayout_53 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_53.setObjectName("horizontalLayout_53")
@@ -869,11 +941,28 @@ class Ui_Dashboard_Window(object):
         self.users_StackedWidget.addWidget(self.usersSecond_page)
         self.verticalLayout_31.addWidget(self.users_StackedWidget)
         self.verticalLayout_32.addWidget(self.manage_body2)
-        self.next_button = QtWidgets.QPushButton(self.manage_body)
+        self.nextButton_frame = QtWidgets.QFrame(self.manage_body)
+        self.nextButton_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.nextButton_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.nextButton_frame.setObjectName("nextButton_frame")
+        self.horizontalLayout_21 = QtWidgets.QHBoxLayout(self.nextButton_frame)
+        self.horizontalLayout_21.setObjectName("horizontalLayout_21")
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_21.addItem(spacerItem2)
+        self.next_button = QtWidgets.QPushButton(self.nextButton_frame)
+        self.next_button.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.next_button.setFont(font)
+        self.next_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.next_button.setObjectName("next_button")
-        self.verticalLayout_32.addWidget(self.next_button)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.verticalLayout_32.addItem(spacerItem2)
+        self.horizontalLayout_21.addWidget(self.next_button)
+        self.verticalLayout_32.addWidget(self.nextButton_frame)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_32.addItem(spacerItem3)
         self.verticalLayout_33.addWidget(self.manage_body)
         self.stackedWidget.addWidget(self.manage_page)
         self.profile_page = QtWidgets.QWidget()
@@ -1208,8 +1297,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_19.addWidget(self.password_edit)
         self.verticalLayout_22.addLayout(self.horizontalLayout_19)
         self.horizontalLayout_20.addLayout(self.verticalLayout_22)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem3)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem4)
         self.profileEdit_button = QtWidgets.QPushButton(self.profile_footer)
         self.profileEdit_button.setMinimumSize(QtCore.QSize(100, 40))
         self.profileEdit_button.setMaximumSize(QtCore.QSize(130, 16777215))
@@ -1222,8 +1311,8 @@ class Ui_Dashboard_Window(object):
         self.profileEdit_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.profileEdit_button.setObjectName("profileEdit_button")
         self.horizontalLayout_20.addWidget(self.profileEdit_button)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem4)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem5)
         self.verticalLayout_23.addWidget(self.profile_footer)
         self.verticalLayout_24.addLayout(self.verticalLayout_23)
         self.verticalLayout_26.addWidget(self.profile_body_2)
@@ -1458,8 +1547,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setContentsMargins(-1, 10, -1, -1)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_11.addItem(spacerItem5)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_11.addItem(spacerItem6)
         self.print_button = QtWidgets.QPushButton(self.generateBill_frame)
         self.print_button.setMinimumSize(QtCore.QSize(135, 47))
         font = QtGui.QFont()
@@ -1484,8 +1573,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11.addWidget(self.calculate_button)
         self.verticalLayout_15.addLayout(self.horizontalLayout_11)
         self.verticalLayout_17.addWidget(self.generateBill_frame)
-        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
-        self.verticalLayout_17.addItem(spacerItem6)
+        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
+        self.verticalLayout_17.addItem(spacerItem7)
         self.verticalLayout_16.addWidget(self.generateBill_body)
         self.stackedWidget.addWidget(self.generateBill_page)
         self.horizontalLayout_7.addWidget(self.stackedWidget)
@@ -1493,7 +1582,7 @@ class Ui_Dashboard_Window(object):
 
         self.retranslateUi(Dashboard_Window)
         self.stackedWidget.setCurrentIndex(2)
-        self.users_StackedWidget.setCurrentIndex(1)
+        self.users_StackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
     def retranslateUi(self, Dashboard_Window):

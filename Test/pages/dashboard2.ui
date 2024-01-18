@@ -890,9 +890,29 @@ QFrame {
 	color: #D0F565;
 }
 
-#usersAddress_label {
-	color: #9A9A9A;
+#userDetails_label {
+	margin: 5px;
 }
+
+#users_StackedWidget QLabel {
+	qproperty-alignment: AlignCenter;
+	
+}
+
+#next_button {
+	color: #1C1C1C;
+	background-color: #CAFF33;
+	border-radius: 10px;
+	width: 150px;
+	height: 37px;
+}
+
+#next_button::hover {
+	color: #CAFF33;
+	background-color: #2A2A2A;
+}
+
+
 </string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_33">
@@ -970,7 +990,33 @@ QFrame {
         <item>
          <widget class="QFrame" name="manage_body">
           <property name="styleSheet">
-           <string notr="true">
+           <string notr="true">#usersName_label {
+	color: #9A9A9A;
+	margin-top: 8px;
+	margin-right: 10px;
+	qproperty-alignment: AlignCenter;
+}
+
+#usersAddress_label {
+	color: #9A9A9A;
+	margin-top: 8px;
+	margin-right: 10px;
+	qproperty-alignment: AlignCenter;
+}
+
+#usersContractNo_label {
+	color: #9A9A9A;
+	margin-right: 10px;
+	margin-top: 8px;
+	qproperty-alignment: AlignCenter;
+}
+
+#usersAmount_label {
+	color: #9A9A9A;
+	margin-top: 8px;
+	margin-right: 10px;
+	qproperty-alignment: AlignCenter;
+}
 
 </string>
           </property>
@@ -1007,7 +1053,7 @@ QFrame {
                 <property name="font">
                  <font>
                   <family>DM Sans</family>
-                  <pointsize>13</pointsize>
+                  <pointsize>14</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
@@ -1019,8 +1065,17 @@ QFrame {
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="usersName_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans Medium</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Name</string>
                   </property>
@@ -1028,6 +1083,14 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="usersAddress_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans Medium</family>
+                    <pointsize>10</pointsize>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Address</string>
                   </property>
@@ -1035,6 +1098,12 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="usersContractNo_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans Medium</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Contract No.</string>
                   </property>
@@ -1042,6 +1111,12 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="usersAmount_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans Medium</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Amount Due</string>
                   </property>
@@ -1058,8 +1133,15 @@ QFrame {
               </item>
               <item>
                <widget class="QStackedWidget" name="users_StackedWidget">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	font-family: DM Sans;
+	font-weight: bold;
+	font-size: 12px;
+}</string>
+                </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="usersThird_page">
                  <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1259,6 +1341,21 @@ QFrame {
                 </widget>
                 <widget class="QWidget" name="usersFirst_page">
                  <layout class="QVBoxLayout" name="verticalLayout_27">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_53">
                     <item>
@@ -1655,10 +1752,55 @@ QFrame {
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="next_button">
-             <property name="text">
-              <string>Next</string>
+            <widget class="QFrame" name="nextButton_frame">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="next_button">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>10</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="text">
+                 <string>Next</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>
