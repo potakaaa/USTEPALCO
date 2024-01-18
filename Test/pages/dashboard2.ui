@@ -254,6 +254,9 @@ QPushButton {
              <property name="text">
               <string>Dashboard</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
           </layout>
@@ -294,6 +297,9 @@ QPushButton {
              </property>
              <property name="text">
               <string>Reports</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -336,6 +342,9 @@ QPushButton {
              <property name="text">
               <string>Manage Users</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
           </layout>
@@ -377,6 +386,9 @@ QPushButton {
              <property name="text">
               <string>Generate Bill</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
           </layout>
@@ -417,6 +429,9 @@ QPushButton {
              </property>
              <property name="text">
               <string>Profile</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -461,7 +476,7 @@ QPushButton {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_1">
        <property name="font">
@@ -876,7 +891,20 @@ QFrame {
 #reports_body {
 	background-color: #2A2A2A;
 	border-radius: 18px;
-}</string>
+}
+
+#paymentDetails_label {
+	margin: 5px 1px;
+}
+
+#reports_list QLabel {
+	qproperty-alignment: AlignCenter;
+	font-family: DM Sans;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_38">
         <item>
@@ -1025,7 +1053,7 @@ QFrame {
              <property name="frameShadow">
               <enum>QFrame::Raised</enum>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_37">
+             <layout class="QVBoxLayout" name="verticalLayout_40">
               <item>
                <widget class="QLabel" name="paymentDetails_label">
                 <property name="maximumSize">
@@ -1052,8 +1080,17 @@ QFrame {
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
+                <property name="topMargin">
+                 <number>8</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="paymentUsers_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>35</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>DM Sans Medium</family>
@@ -1067,6 +1104,12 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="paymentAddress_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>35</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>DM Sans Medium</family>
@@ -1082,6 +1125,12 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="paymentDate_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>35</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>DM Sans Medium</family>
@@ -1095,6 +1144,12 @@ QFrame {
                 </item>
                 <item>
                  <widget class="QLabel" name="paymentAmount_label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>35</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>DM Sans Medium</family>
@@ -1124,31 +1179,46 @@ QFrame {
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_36">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>10</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_68">
                    <item>
-                    <widget class="QLabel" name="row2_name_4">
+                    <widget class="QLabel" name="paymentUsers_row1">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_address_4">
+                    <widget class="QLabel" name="paymentAddress_row1">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_contractNo_4">
+                    <widget class="QLabel" name="paymentDate_row1">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_amount_4">
+                    <widget class="QLabel" name="paymentAmount_row1">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
@@ -1159,28 +1229,28 @@ QFrame {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_69">
                    <item>
-                    <widget class="QLabel" name="row2_name_5">
+                    <widget class="QLabel" name="paymentUsers_row2">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_address_5">
+                    <widget class="QLabel" name="paymentAddress_row2">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_contractNo_5">
+                    <widget class="QLabel" name="paymentDate_row2">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_amount_5">
+                    <widget class="QLabel" name="paymentAmount_row2">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
@@ -1191,28 +1261,28 @@ QFrame {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_70">
                    <item>
-                    <widget class="QLabel" name="row2_name_6">
+                    <widget class="QLabel" name="paymentUsers_row3">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_address_6">
+                    <widget class="QLabel" name="paymentAddress_row3">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_contractNo_6">
+                    <widget class="QLabel" name="paymentDate_row3">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_amount_6">
+                    <widget class="QLabel" name="paymentAmount_row3">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
@@ -1223,28 +1293,28 @@ QFrame {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_71">
                    <item>
-                    <widget class="QLabel" name="row2_name_7">
+                    <widget class="QLabel" name="paymentUsers_row4">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_address_7">
+                    <widget class="QLabel" name="paymentAddress_row4">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_contractNo_7">
+                    <widget class="QLabel" name="paymentDate_row4">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_amount_7">
+                    <widget class="QLabel" name="paymentAmount_row4">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
@@ -1255,28 +1325,124 @@ QFrame {
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_72">
                    <item>
-                    <widget class="QLabel" name="row2_name_8">
+                    <widget class="QLabel" name="paymentUsers_row5">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_address_8">
+                    <widget class="QLabel" name="paymentAddress_row5">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_contractNo_8">
+                    <widget class="QLabel" name="paymentDate_row5">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="row2_amount_8">
+                    <widget class="QLabel" name="paymentAmount_row5">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_78">
+                   <item>
+                    <widget class="QLabel" name="paymentUsers_row6">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAddress_row6">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentDate_row6">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAmount_row6">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_86">
+                   <item>
+                    <widget class="QLabel" name="paymentUsers_row7">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAddress_row7">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentDate_row7">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAmount_row7">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_90">
+                   <item>
+                    <widget class="QLabel" name="paymentUsers_row8">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAddress_row8">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentDate_row8">
+                     <property name="text">
+                      <string>TextLabel</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="paymentAmount_row8">
                      <property name="text">
                       <string>TextLabel</string>
                      </property>
@@ -1328,6 +1494,7 @@ QFrame {
 #manage_body2 {
 	background-color: #2A2A2A;
 	border-radius: 18px;
+	margin: 5px;
 }
 
 #manage_page QLabel {
@@ -2298,6 +2465,483 @@ QFrame {
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="generateBill_page">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+	color: #D0F565;
+}
+
+#pages_text_3 {
+	margin-left: 7px;
+	margin-top: 4px;
+}
+
+#mainDashboard_text_3 {
+	margin-left: 5px;
+	margin-top: 3px;
+}
+
+#generateBill_frame {
+	vertical-align: top;
+	background-color: #2A2A2A;
+	border-radius: 12px;
+}
+
+
+QLineEdit {
+	border: 1px solid white;
+	border-radius: 10px;
+	background-color: transparent;
+	color: white;
+	margin: 0px 10px;
+	padding: 5px 10px;
+}
+
+QLabel {
+	margin-top: 7px;
+	margin-left: 6px;
+}
+
+#calculateBill_label {
+	margin-top: 15px;
+	margin-left: 8px;
+}
+
+#conNum_label {
+	margin-top: 12px;
+}
+
+QPushButton {
+	margin: 5px;
+	background-color: #CAFF33;
+	color: #2A2A2A;
+	border-radius: 12px;
+}
+
+QPushButton::hover {
+	background-color: #1C1C1C;
+	color: #CAFF33;
+}
+
+</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_16">
+        <property name="leftMargin">
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="header_2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="pages_text_3">
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Pages / Generate</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="generateBill_text_3">
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>DM Sans</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>Generate Bill</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="generateBill_body">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_17">
+           <item>
+            <widget class="QFrame" name="generateBill_frame">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>450</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
+               <widget class="QLabel" name="calculateBill_label">
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>15</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Calculate Bill</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QLabel" name="conNum_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Contract Number</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="conNum_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>ex. 926088</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QLabel" name="fullName_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Full Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="fullName_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                   </font>
+                  </property>
+                  <property name="placeholderText">
+                   <string>ex. Hans Del Mundo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item>
+                   <widget class="QLabel" name="dueDate_label">
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <pointsize>9</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Due Date</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="dueDate_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>32</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="placeholderText">
+                     <string>mm-dd-yy (ex. 01-01-2023)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <item>
+                   <widget class="QLabel" name="pesokwh_label">
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Peso per kWh</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="pesokwh_edit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>32</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>DM Sans</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>₱  0 . 6232</string>
+                    </property>
+                    <property name="readOnly">
+                     <bool>true</bool>
+                    </property>
+                    <property name="placeholderText">
+                     <string>₱ 0.6232</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QLabel" name="billDue_label">
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Bill Due</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="billDue_edit">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>15</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="placeholderText">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <property name="topMargin">
+                 <number>10</number>
+                </property>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::Expanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="print_button">
+                  <property name="minimumSize">
+                   <size>
+                    <width>135</width>
+                    <height>47</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Print</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="calculate_button">
+                  <property name="minimumSize">
+                   <size>
+                    <width>135</width>
+                    <height>47</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>DM Sans</family>
+                    <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Calculate</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::MinimumExpanding</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="profile_page">
        <property name="styleSheet">
         <string notr="true">#pages_text_4 {
@@ -2979,483 +3623,6 @@ QFrame {
            </widget>
           </item>
          </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="generateBill_page">
-       <property name="styleSheet">
-        <string notr="true">QLabel {
-	color: #D0F565;
-}
-
-#pages_text_3 {
-	margin-left: 7px;
-	margin-top: 4px;
-}
-
-#mainDashboard_text_3 {
-	margin-left: 5px;
-	margin-top: 3px;
-}
-
-#generateBill_frame {
-	vertical-align: top;
-	background-color: #2A2A2A;
-	border-radius: 12px;
-}
-
-
-QLineEdit {
-	border: 1px solid white;
-	border-radius: 10px;
-	background-color: transparent;
-	color: white;
-	margin: 0px 10px;
-	padding: 5px 10px;
-}
-
-QLabel {
-	margin-top: 7px;
-	margin-left: 6px;
-}
-
-#calculateBill_label {
-	margin-top: 15px;
-	margin-left: 8px;
-}
-
-#conNum_label {
-	margin-top: 12px;
-}
-
-QPushButton {
-	margin: 5px;
-	background-color: #CAFF33;
-	color: #2A2A2A;
-	border-radius: 12px;
-}
-
-QPushButton::hover {
-	background-color: #1C1C1C;
-	color: #CAFF33;
-}
-
-</string>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_16">
-        <property name="leftMargin">
-         <number>9</number>
-        </property>
-        <item>
-         <widget class="QFrame" name="header_2">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>80</height>
-           </size>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>10</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="pages_text_3">
-               <property name="maximumSize">
-                <size>
-                 <width>150</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DM Sans</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Pages / Generate</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="generateBill_text_3">
-               <property name="maximumSize">
-                <size>
-                 <width>200</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>DM Sans</family>
-                 <pointsize>16</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Generate Bill</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QFrame" name="generateBill_body">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_17">
-           <item>
-            <widget class="QFrame" name="generateBill_frame">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>450</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_15">
-              <item>
-               <widget class="QLabel" name="calculateBill_label">
-                <property name="font">
-                 <font>
-                  <family>DM Sans</family>
-                  <pointsize>15</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Calculate Bill</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_9">
-                <item>
-                 <widget class="QLabel" name="conNum_label">
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Contract Number</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="conNum_edit">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                   </font>
-                  </property>
-                  <property name="placeholderText">
-                   <string>ex. 926088</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_11">
-                <item>
-                 <widget class="QLabel" name="fullName_label">
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Full Name</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="fullName_edit">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>32</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                   </font>
-                  </property>
-                  <property name="placeholderText">
-                   <string>ex. Hans Del Mundo</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_12">
-                  <item>
-                   <widget class="QLabel" name="dueDate_label">
-                    <property name="font">
-                     <font>
-                      <family>DM Sans</family>
-                      <pointsize>9</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Due Date</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="dueDate_edit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>DM Sans</family>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="placeholderText">
-                     <string>mm-dd-yy (ex. 01-01-2023)</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_13">
-                  <item>
-                   <widget class="QLabel" name="pesokwh_label">
-                    <property name="font">
-                     <font>
-                      <family>DM Sans</family>
-                      <pointsize>10</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Peso per kWh</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="pesokwh_edit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>DM Sans</family>
-                      <pointsize>10</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>₱  0 . 6232</string>
-                    </property>
-                    <property name="readOnly">
-                     <bool>true</bool>
-                    </property>
-                    <property name="placeholderText">
-                     <string>₱ 0.6232</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_14">
-                <item>
-                 <widget class="QLabel" name="billDue_label">
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Bill Due</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="billDue_edit">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>50</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>15</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignCenter</set>
-                  </property>
-                  <property name="readOnly">
-                   <bool>true</bool>
-                  </property>
-                  <property name="placeholderText">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <property name="topMargin">
-                 <number>10</number>
-                </property>
-                <item>
-                 <spacer name="horizontalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Expanding</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="print_button">
-                  <property name="minimumSize">
-                   <size>
-                    <width>135</width>
-                    <height>47</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="text">
-                   <string>Print</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="calculate_button">
-                  <property name="minimumSize">
-                   <size>
-                    <width>135</width>
-                    <height>47</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>DM Sans</family>
-                    <pointsize>10</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="cursor">
-                   <cursorShape>PointingHandCursor</cursorShape>
-                  </property>
-                  <property name="text">
-                   <string>Calculate</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::MinimumExpanding</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
         </item>
        </layout>
       </widget>
