@@ -286,14 +286,14 @@ class MainWindow(QMainWindow):
     def on_button_login_pressed(self):
         email = self.ui.edit_email.text()
         passw = self.ui.edit_password.text()
-        # if((len(passw) < 8)):
-        #     self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
-        # elif(self.__check_login(email, passw) ):
-        #     self.page_view('dashboard')
-        # else:
-        #     self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
+        if((len(passw) < 8)):
+            self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
+        elif(self.__check_login(email, passw) ):
+            self.page_view('dashboard')
+        else:
+            self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
 
-        self.page_view('dashboard')
+        # self.page_view('dashboard')
     
     def on_forget_button_pressed(self):
         email = self.ui.edit_email.text()
