@@ -484,7 +484,21 @@ class Ui_Dashboard_Window(object):
 "    margin-left: 5px;\n"
 "    margin-top: 3px;\n"
 "    color: #D0F565;\n"
-"}")
+"}\n"
+"\n"
+"#manage_body2 {\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 18px;\n"
+"}\n"
+"\n"
+"#manage_page QLabel {\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#usersAddress_label {\n"
+"    color: #9A9A9A;\n"
+"}\n"
+"")
         self.manage_page.setObjectName("manage_page")
         self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.manage_page)
         self.verticalLayout_33.setObjectName("verticalLayout_33")
@@ -521,11 +535,7 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_10.addLayout(self.verticalLayout_18)
         self.verticalLayout_33.addWidget(self.header_4)
         self.manage_body = QtWidgets.QFrame(self.manage_page)
-        self.manage_body.setStyleSheet("QLabel {\n"
-"    color: white;\n"
-"}\n"
-"\n"
-"\n"
+        self.manage_body.setStyleSheet("\n"
 "\n"
 "")
         self.manage_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -542,6 +552,12 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.manage_body2)
         self.verticalLayout_31.setObjectName("verticalLayout_31")
         self.userDetails_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.userDetails_label.setFont(font)
         self.userDetails_label.setObjectName("userDetails_label")
         self.verticalLayout_31.addWidget(self.userDetails_label)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
@@ -559,6 +575,11 @@ class Ui_Dashboard_Window(object):
         self.usersAmount_label.setObjectName("usersAmount_label")
         self.horizontalLayout_12.addWidget(self.usersAmount_label)
         self.verticalLayout_31.addLayout(self.horizontalLayout_12)
+        self.line = QtWidgets.QFrame(self.manage_body2)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.verticalLayout_31.addWidget(self.line)
         self.users_StackedWidget = QtWidgets.QStackedWidget(self.manage_body2)
         self.users_StackedWidget.setObjectName("users_StackedWidget")
         self.usersThird_page = QtWidgets.QWidget()
@@ -847,9 +868,12 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_28.addLayout(self.horizontalLayout_58)
         self.users_StackedWidget.addWidget(self.usersSecond_page)
         self.verticalLayout_31.addWidget(self.users_StackedWidget)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_31.addItem(spacerItem2)
         self.verticalLayout_32.addWidget(self.manage_body2)
+        self.next_button = QtWidgets.QPushButton(self.manage_body)
+        self.next_button.setObjectName("next_button")
+        self.verticalLayout_32.addWidget(self.next_button)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_32.addItem(spacerItem2)
         self.verticalLayout_33.addWidget(self.manage_body)
         self.stackedWidget.addWidget(self.manage_page)
         self.profile_page = QtWidgets.QWidget()
@@ -1469,7 +1493,7 @@ class Ui_Dashboard_Window(object):
 
         self.retranslateUi(Dashboard_Window)
         self.stackedWidget.setCurrentIndex(2)
-        self.users_StackedWidget.setCurrentIndex(0)
+        self.users_StackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
     def retranslateUi(self, Dashboard_Window):
@@ -1566,6 +1590,7 @@ class Ui_Dashboard_Window(object):
         self.row6_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
         self.row6_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
         self.row6_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.next_button.setText(_translate("Dashboard_Window", "Next"))
         self.pages_text_4.setText(_translate("Dashboard_Window", "Pages / Profile"))
         self.mainDashboard_text_4.setText(_translate("Dashboard_Window", "Profile"))
         self.profile_label.setText(_translate("Dashboard_Window", "Your Profile"))

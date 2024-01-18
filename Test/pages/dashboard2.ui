@@ -879,7 +879,21 @@ QFrame {
 	margin-left: 5px;
 	margin-top: 3px;
 	color: #D0F565;
-}</string>
+}
+
+#manage_body2 {
+	background-color: #2A2A2A;
+	border-radius: 18px;
+}
+
+#manage_page QLabel {
+	color: #D0F565;
+}
+
+#usersAddress_label {
+	color: #9A9A9A;
+}
+</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_33">
         <item>
@@ -956,11 +970,7 @@ QFrame {
         <item>
          <widget class="QFrame" name="manage_body">
           <property name="styleSheet">
-           <string notr="true">QLabel {
-	color: white;
-}
-
-
+           <string notr="true">
 
 </string>
           </property>
@@ -994,6 +1004,14 @@ QFrame {
              <layout class="QVBoxLayout" name="verticalLayout_31">
               <item>
                <widget class="QLabel" name="userDetails_label">
+                <property name="font">
+                 <font>
+                  <family>DM Sans</family>
+                  <pointsize>13</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>User Details</string>
                 </property>
@@ -1032,9 +1050,16 @@ QFrame {
                </layout>
               </item>
               <item>
+               <widget class="Line" name="line">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QStackedWidget" name="users_StackedWidget">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="usersThird_page">
                  <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1626,21 +1651,31 @@ QFrame {
                 </widget>
                </widget>
               </item>
-              <item>
-               <spacer name="verticalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>40</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
              </layout>
             </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="next_button">
+             <property name="text">
+              <string>Next</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>100</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
