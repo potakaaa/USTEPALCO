@@ -17,19 +17,6 @@ class MainWindow(QMainWindow):
         self.__init_db()
         self.page_view('login')
         
-
-    def on_dashboard_button_pressed(self):
-        self.ui.stackedWidget.setCurrentIndex(1)
-    def on_reports_button_pressed(self):
-        self.ui.stackedWidget.setCurrentIndex(2)
-    def on_manage_button_pressed(self):
-        self.ui.stackedWidget.setCurrentIndex(3)
-    def on_generate_button_pressed(self):
-        self.ui.stackedWidget.setCurrentIndex(4)
-    def on_profile_button_pressed(self):
-        self.ui.stackedWidget.setCurrentIndex(5)
-    
-
     def __init_db(self):
         self.__sql.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL)")
         self.__conn.commit()
@@ -115,15 +102,81 @@ class MainWindow(QMainWindow):
         
         self.page_view('dashboard')
 
+    #change page
+    def on_dashboard_button_clicked(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
+        self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
+            "color: white; }\n"
+        )
+        self.ui.reports_button.setStyleSheet("#reports_button {\n"
+            "color: #959595; }")
+        self.ui.manage_button.setStyleSheet("#manage_button {\n"
+            "color: #959595; }")
+        self.ui.generate_button.setStyleSheet("#generate_button {\n"
+            "color: #959595; }")
+        self.ui.profile_button.setStyleSheet("#profile_button {\n"
+            "color: #959595; }")
+            
+    def on_reports_button_clicked(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
+        self.ui.reports_button.setStyleSheet("#reports_button {\n"
+            "color: white; }\n"
+        )
+        self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
+            "color: #959595; }")
+        self.ui.manage_button.setStyleSheet("#manage_button {\n"
+            "color: #959595; }")
+        self.ui.generate_button.setStyleSheet("#generate_button {\n"
+            "color: #959595; }")
+        self.ui.profile_button.setStyleSheet("#profile_button {\n"
+            "color: #959595; }")
+    def on_manage_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
+        self.ui.manage_button.setStyleSheet("#manage_button {\n"
+            "color: white; }\n"
+        )
+        self.ui.reports_button.setStyleSheet("#reports_button {\n"
+            "color: #959595; }")
+        self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
+            "color: #959595; }")
+        self.ui.generate_button.setStyleSheet("#generate_button {\n"
+            "color: #959595; }")
+        self.ui.profile_button.setStyleSheet("#profile_button {\n"
+            "color: #959595; }")
+    def on_generate_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(4)
+        self.ui.generate_button.setStyleSheet("#generate_button {\n"
+            "color: white; }\n"
+        )
+        self.ui.reports_button.setStyleSheet("#reports_button {\n"
+            "color: #959595; }")
+        self.ui.manage_button.setStyleSheet("#manage_button {\n"
+            "color: #959595; }")
+        self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
+            "color: #959595; }")
+        self.ui.profile_button.setStyleSheet("#profile_button {\n"
+            "color: #959595; }")
+    def on_profile_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(5)
+        self.ui.profile_button.setStyleSheet("#profile_button {\n"
+            "color: white; }\n"
+        )
+        self.ui.reports_button.setStyleSheet("#reports_button {\n"
+            "color: #959595; }")
+        self.ui.manage_button.setStyleSheet("#manage_button {\n"
+            "color: #959595; }")
+        self.ui.generate_button.setStyleSheet("#generate_button {\n"
+            "color: #959595; }")
+        self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
+            "color: #959595; }")
+
 
     # irename pod guro ning mga button rald, unsa man ning "pushButton_2"
-    def on_pushButton_2_clicked(self):
+    def on_calculate_button_clicked(self):
         global p_kwh 
         self.p_kwh = 0.6232
         self.amountDue = self.p_kwh * 99 #placeholder
         self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
-
-        
 
     def on_profileEdit_button_pressed(self):
         self.ui.profileEdit_button.setCheckable(True)
