@@ -6,18 +6,109 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from pages.login_page import Ui_MainWindow as LoginPage
 from pages.dashboard2 import Ui_Dashboard_Window as DashboardPage
 
-
+#test
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
-        self.__db_file = "USTEPALCO.db"
+        self.__db_file = "USTEPALCO//Test//USTEPALCO.db"
         self.__conn = sqlite3.connect(self.__db_file)
         self.__sql = self.__conn.cursor()
         self.page_view('login')
         global p_kwh 
         self.p_kwh = 11.3997
 
+
+
+    def __check_login(self, email, password):
+        password = self.secure_password(password) 
+        self.__sql.execute("SELECT * FROM admin WHERE email = ? AND password = ?;",(email, password))
+        results = self.__sql.fetchall()
+        status = False # False default status means user not exists
+        if(len(results) > 0):
+            self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
+            self.__NameofUser = results[0][2]
+            self.__AdofUser = results[0][3]
+            self.__NumOfUser = results[0][4]
+            self.__PassOfUser = results[0][6]
+            self.__session_username = results[0][5] # Store the user email in session username.
+            status = True # Status change value to True if user exists
+
+        return status
+        
+    
+    def __get_user_usage(self, contract_no, fullname):
+        self.__sql.execute("SELECT pd.usage FROM payment_det pd JOIN users u ON pd.uid = u.uid WHERE u.contract_no = ? AND u.full_name = ?", (contract_no, fullname ))
+        results = self.__sql.fetchall()
+        if(len(results) > 0):
+            return results[0][0]
+
+        self.show_message("ERROR", "Invalid contract number!", QMessageBox.Warning)
+        return 0
+
+    def __update_password(self, new_password, email):
+        new_password = self.secure_password(new_password)
+        self.__sql.execute("UPDATE admin SET password = ? WHERE email = ?", (new_password, email))
+        self.__conn.commit()
+    
+    def __is_Email_Exists(self, email):
+        self.__sql.execute("SELECT * FROM admin WHERE email = ?", (email,))
+        results = self.__sql.fetchall()
+        if(len(results) > 0):
+            return True
+        return False
+    
+    def secure_password(self, plaintext):
+        seed_text = self.__seed + plaintext
+        ciphertext = hashlib.sha1(seed_text.encode())
+        return ciphertext.hexdigest()
+
+    def show_message(self, title, text, icon_type):
+        msg = QMessageBox()
+        msg.setIcon(icon_type)
+        msg.setWindowTitle(title)
+        msg.setWindowIcon(QtGui.QIcon('icon.png'))
+        msg.setText(text)
+        msg.exec_()
+
+    def generate_otp(self):
+        OTP_Length = 6
+        OTP_Characters = list('ABCDEFGHJKLOPQRX132907')
+        OTP_code = random.choices(OTP_Characters, k=OTP_Length)
+        return ''.join(OTP_code)
+
+    def reset_password(self, email='abales.anikinluk3@gmail.com'):
+        if(self.__is_Email_Exists(email) == False):
+            return
+        temporary_password = self.generate_otp()
+        user = (email.split("@")[0]).title()
+
+        subject = "Password reset on USTEPALCO"
+        content = f"""
+        <div>
+        <table style="width:100%; height: 40vh; font-size:14px; background-color: rgb(0,0,0,0.1); display:flex; align-items:center; justify-content: center;">
+            <tr>
+            <td>
+            <div style="min-width:350px; font-family: sans-serif; background-color: rgb(255,255,255,0.6); padding:10px; border-radius:10px; box-shadow:0px 0px 5px 1px rgb(0,0,0,0.2);">
+                <h2 style="font-family: sans-serif; text-align: center;">TEMPORARY PASSWORD</h2>
+                <p>
+                    Hey {user},<br>
+                    A password reset was requested for your account. Below is your temporary password:
+                </p>
+                <div style="text-align: center;">
+                    <input readonly value="{temporary_password}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
+                </div>
+                <p>If you didn't request this change, please ignore this message or contact <a href="mailto:support@ustepalco.cloud">support</a> immediately.</p>
+                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
+            </div>
+            </td>
+            </tr>
+        </table>
+        </div>
+        """
+        mail = Mail(subject, content, "html")
+        mail.sendto(email)
+        self.__update_password(temporary_password, email)
 
     def on_dashboard_button_pressed(self):
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -110,7 +201,7 @@ class MainWindow(QMainWindow):
                     self.ui.row3_contractNo_3, self.ui.row4_contractNo, self.ui.row4_contractNo_2, self.ui.row4_contractNo_3,
                     self.ui.row5_contractNo, self.ui.row5_contractNo_2, self.ui.row5_contractNo_3, self.ui.row6_contractNo, 
                     self.ui.row6_contractNo_2, self.ui.row6_contractNo_3]
-
+            
         self.__amount = [self.ui.row1_amount, self.ui.row1_amount_2, self.ui.row1_amount_3, self.ui.row2_amount, 
                     self.ui.row2_amount_2, self.ui.row2_amount_3, self.ui.row3_amount, self.ui.row3_amount_2, 
                     self.ui.row3_amount_3, self.ui.row4_amount, self.ui.row4_amount_2, self.ui.row4_amount_3,
@@ -175,7 +266,7 @@ class MainWindow(QMainWindow):
             "color: #959595; }")
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
             "color: #959595; }")   
-
+        
         self.ui.adminID_edit.setText(self.__session_user_uid)
         self.ui.name_edit.setText(self.__NameofUser)
         self.ui.adrress_edit.setText(self.__AdofUser)
@@ -183,94 +274,9 @@ class MainWindow(QMainWindow):
         self.ui.password_edit.setText(self.__PassOfUser)
         self.ui.email_edit.setText(self.__session_username)
 
-    def __check_login(self, email, password):
-        password = self.secure_password(password) 
-        self.__sql.execute("SELECT * FROM admin WHERE email = ? AND password = ?;",(email, password))
-        results = self.__sql.fetchall()
-        status = False # False default status means user not exists
-        if(len(results) > 0):
-            self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
-            self.__NameofUser = results[0][2]
-            self.__AdofUser = results[0][3]
-            self.__NumOfUser = results[0][4]
-            self.__PassOfUser = results[0][6]
-            self.__session_username = results[0][5] # Store the user email in session username.
-            status = True # Status change value to True if user exists
+        
 
-        return status
-    
-    def __update_password(self, new_password, email):
-        new_password = self.secure_password(new_password)
-        self.__sql.execute("UPDATE admin SET password = ? WHERE email = ?", (new_password, email))
-        self.__conn.commit()
-    
-    def __is_Email_Exists(self, email):
-        self.__sql.execute("SELECT * FROM admin WHERE email = ?", (email,))
-        results = self.__sql.fetchall()
-        if(len(results) > 0):
-            return True
-        return False
 
-    def __get_user_usage(self, contract_no, fullname):
-        self.__sql.execute("SELECT pd.usage FROM payment_det pd JOIN users u ON pd.uid = u.uid WHERE u.contract_no = ? AND u.full_name = ?", (contract_no, fullname ))
-        results = self.__sql.fetchall()
-        if(len(results) > 0):
-            return results[0][0]
-
-        self.show_message("ERROR", "Invalid contract number!", QMessageBox.Warning)
-        return 0
-    
-    def secure_password(self, plaintext):
-        seed_text = self.__seed + plaintext
-        ciphertext = hashlib.sha1(seed_text.encode())
-        return ciphertext.hexdigest()
-
-    def show_message(self, title, text, icon_type):
-        msg = QMessageBox()
-        msg.setIcon(icon_type)
-        msg.setWindowTitle(title)
-        msg.setWindowIcon(QtGui.QIcon('icon.png'))
-        msg.setText(text)
-        msg.exec_()
-
-    def generate_otp(self):
-        OTP_Length = 6
-        OTP_Characters = list('ABCDEFGHJKLOPQRX132907')
-        OTP_code = random.choices(OTP_Characters, k=OTP_Length)
-        return ''.join(OTP_code)
-
-    def reset_password(self, email='abales.anikinluk3@gmail.com'):
-        if(self.__is_Email_Exists(email) == False):
-            return
-        temporary_password = self.generate_otp()
-        user = (email.split("@")[0]).title()
-
-        subject = "Password reset on USTEPALCO"
-        content = f"""
-        <div>
-        <table style="width:100%; height: 40vh; font-size:14px; background-color: rgb(0,0,0,0.1); display:flex; align-items:center; justify-content: center;">
-            <tr>
-            <td>
-            <div style="min-width:350px; font-family: sans-serif; background-color: rgb(255,255,255,0.6); padding:10px; border-radius:10px; box-shadow:0px 0px 5px 1px rgb(0,0,0,0.2);">
-                <h2 style="font-family: sans-serif; text-align: center;">TEMPORARY PASSWORD</h2>
-                <p>
-                    Hey {user},<br>
-                    A password reset was requested for your account. Below is your temporary password:
-                </p>
-                <div style="text-align: center;">
-                    <input readonly value="{temporary_password}" style="border-radius:5px; padding:5px; font-family: sans-serif; text-align: center; color:black; font-size:28px; outline:none; border:1px solid black;">
-                </div>
-                <p>If you didn't request this change, please ignore this message or contact <a href="mailto:support@ustepalco.cloud">support</a> immediately.</p>
-                <p>Kind Regards,<br><a style="text-decoration:underline;font-size:12px;text-align:center" href="https://ustepalco.cloud"><b>USTEPALCO</b></a></p>
-            </div>
-            </td>
-            </tr>
-        </table>
-        </div>
-        """
-        mail = Mail(subject, content, "html")
-        mail.sendto(email)
-        self.__update_password(temporary_password, email)
 
     def page_view(self, view):
         if view == 'login':
@@ -288,17 +294,15 @@ class MainWindow(QMainWindow):
 
 
     def on_button_login_pressed(self):
-        '''email = self.ui.edit_email.text()
+        email = self.ui.edit_email.text()
         passw = self.ui.edit_password.text()
         if((len(passw) < 8)):
             self.show_message("ERROR", "Minimum password length is 8.", QMessageBox.Warning)
         elif(self.__check_login(email, passw) ):
             self.page_view('dashboard')
         else:
-            self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)'''
-
-        self.page_view('dashboard')
-    
+            self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
+        
     def on_forget_button_pressed(self):
         email = self.ui.edit_email.text()
         if(email.strip() == ''):
@@ -306,13 +310,14 @@ class MainWindow(QMainWindow):
             return
         self.reset_password(email)
 
-    def on_calculate_button_pressed(self):
-        contract_no = self.ui.conNum_edit.text().strip()
-        fullname = self.ui.fullName_edit.text().strip()
-        usage = self.__get_user_usage(contract_no, fullname)
+    # irename pod guro ning mga button rald, unsa man ning "pushButton_2"
+    def on_pushButton_2_clicked(self):
 
-        self.amountDue = self.p_kwh * usage
+        self.amountDue = self.p_kwh * 99 #placeholder
         self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
+
+
+        
 
     def on_profileEdit_button_pressed(self):
         self.ui.profileEdit_button.setCheckable(True)
@@ -335,6 +340,10 @@ class MainWindow(QMainWindow):
             self.ui.password_edit.setReadOnly(True)
             self.ui.profileEdit_button.setText("Edit")
 
+
+
+
+
     def on_next_button_pressed(self):     
         nextwidg = self.ui.users_StackedWidget.currentIndex() + 1
 
@@ -342,6 +351,9 @@ class MainWindow(QMainWindow):
             self.ui.users_StackedWidget.setCurrentIndex(nextwidg)
         else:
             self.ui.users_StackedWidget.setCurrentIndex(0)
+        
+        
+
         
         
 if(__name__ == "__main__"):
