@@ -106,6 +106,11 @@ class Ui_Dashboard_Window(object):
 "    text-align: center;\n"
 "}\n"
 "\n"
+"#logout_button::hover {\n"
+"    color: #CAFF33;\n"
+"    background-color: #1C1C1C;\n"
+"}\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -468,6 +473,335 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_3.addWidget(self.frame_9)
         self.verticalLayout_6.addWidget(self.dashboard_body)
         self.stackedWidget.addWidget(self.dashboard_page)
+        self.profile_page = QtWidgets.QWidget()
+        self.profile_page.setStyleSheet("#pages_text_4 {\n"
+"    margin-left: 7px;\n"
+"    margin-top: 4px;\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#mainDashboard_text_4{\n"
+"    margin-left: 5px;\n"
+"    margin-top: 3px;\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#profile_header {\n"
+"    background-color: #CAFF33;\n"
+"    margin: 12px;\n"
+"    border-radius: 25px;\n"
+"}\n"
+"\n"
+"#profile_label {\n"
+"    color: #232325;\n"
+"    margin-left: 17px;\n"
+"}\n"
+"\n"
+"#profile_picture {\n"
+"    \n"
+"}\n"
+"\n"
+"#profile_footer QLabel {\n"
+"    \n"
+"    color: #959595;\n"
+"    margin-left: 20px;\n"
+"}\n"
+"\n"
+"#profile_footer QLineEdit {\n"
+"    background-color: transparent;\n"
+"    border: 1px solid #959595;\n"
+"    height: 35px;\n"
+"    border-radius: 12px;\n"
+"    color: #D0F565;\n"
+"    padding: 3px 15px;\n"
+"    \n"
+"}\n"
+"\n"
+"#adminID_label {\n"
+"    margin-right: 20px;\n"
+"}\n"
+"\n"
+"#name_label {\n"
+"    margin-right: 39px;\n"
+"}\n"
+"\n"
+"#address_label {\n"
+"    margin-right: 23px;\n"
+"}\n"
+"\n"
+"#contactNo_label {\n"
+"    margin-right: 6px;\n"
+"}\n"
+"\n"
+"#email_label {\n"
+"    margin-right: 43px;\n"
+"}\n"
+"\n"
+"#password_label {\n"
+"    margin-right: 15px;\n"
+"}\n"
+"\n"
+"#profileEdit_button {\n"
+"    height: 25px;\n"
+"    background-color: #CAFF33;\n"
+"    color: #232325;\n"
+"\n"
+"}")
+        self.profile_page.setObjectName("profile_page")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.profile_page)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
+        self.header_3 = QtWidgets.QFrame(self.profile_page)
+        self.header_3.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.header_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.header_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.header_3.setObjectName("header_3")
+        self.verticalLayout_20 = QtWidgets.QVBoxLayout(self.header_3)
+        self.verticalLayout_20.setObjectName("verticalLayout_20")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_21.setContentsMargins(-1, -1, -1, 10)
+        self.verticalLayout_21.setSpacing(0)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.pages_text_4 = QtWidgets.QLabel(self.header_3)
+        self.pages_text_4.setMaximumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.pages_text_4.setFont(font)
+        self.pages_text_4.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.pages_text_4.setObjectName("pages_text_4")
+        self.verticalLayout_21.addWidget(self.pages_text_4)
+        self.mainDashboard_text_4 = QtWidgets.QLabel(self.header_3)
+        self.mainDashboard_text_4.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mainDashboard_text_4.setFont(font)
+        self.mainDashboard_text_4.setObjectName("mainDashboard_text_4")
+        self.verticalLayout_21.addWidget(self.mainDashboard_text_4)
+        self.verticalLayout_20.addLayout(self.verticalLayout_21)
+        self.verticalLayout_29.addWidget(self.header_3)
+        self.profile_body = QtWidgets.QFrame(self.profile_page)
+        self.profile_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.profile_body.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.profile_body.setObjectName("profile_body")
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.profile_body)
+        self.verticalLayout_26.setObjectName("verticalLayout_26")
+        self.profile_body_2 = QtWidgets.QFrame(self.profile_body)
+        self.profile_body_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.profile_body_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.profile_body_2.setObjectName("profile_body_2")
+        self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.profile_body_2)
+        self.verticalLayout_24.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_24.setSpacing(0)
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.verticalLayout_23 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_23.setSpacing(0)
+        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.profile_header = QtWidgets.QFrame(self.profile_body_2)
+        self.profile_header.setMaximumSize(QtCore.QSize(16777215, 150))
+        self.profile_header.setStyleSheet("")
+        self.profile_header.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.profile_header.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.profile_header.setObjectName("profile_header")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.profile_header)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.profile_label = QtWidgets.QLabel(self.profile_header)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(17)
+        font.setBold(True)
+        font.setWeight(75)
+        self.profile_label.setFont(font)
+        self.profile_label.setObjectName("profile_label")
+        self.horizontalLayout_13.addWidget(self.profile_label)
+        self.verticalLayout_25.addLayout(self.horizontalLayout_13)
+        self.verticalLayout_23.addWidget(self.profile_header)
+        self.profile_footer = QtWidgets.QFrame(self.profile_body_2)
+        self.profile_footer.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.profile_footer.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.profile_footer.setObjectName("profile_footer")
+        self.horizontalLayout_20 = QtWidgets.QHBoxLayout(self.profile_footer)
+        self.horizontalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_20.setSpacing(0)
+        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_22.setObjectName("verticalLayout_22")
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_14.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
+        self.adminID_label = QtWidgets.QLabel(self.profile_footer)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.adminID_label.sizePolicy().hasHeightForWidth())
+        self.adminID_label.setSizePolicy(sizePolicy)
+        self.adminID_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.adminID_label.setFont(font)
+        self.adminID_label.setObjectName("adminID_label")
+        self.horizontalLayout_14.addWidget(self.adminID_label)
+        self.adminID_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.adminID_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.adminID_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.adminID_edit.setFont(font)
+        self.adminID_edit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.adminID_edit.setObjectName("adminID_edit")
+        self.horizontalLayout_14.addWidget(self.adminID_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_14)
+        self.horizontalLayout_15 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_15.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_15.setObjectName("horizontalLayout_15")
+        self.name_label = QtWidgets.QLabel(self.profile_footer)
+        self.name_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.name_label.setFont(font)
+        self.name_label.setObjectName("name_label")
+        self.horizontalLayout_15.addWidget(self.name_label)
+        self.name_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.name_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.name_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.name_edit.setFont(font)
+        self.name_edit.setObjectName("name_edit")
+        self.horizontalLayout_15.addWidget(self.name_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_15)
+        self.horizontalLayout_16 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_16.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.address_label = QtWidgets.QLabel(self.profile_footer)
+        self.address_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.address_label.setFont(font)
+        self.address_label.setObjectName("address_label")
+        self.horizontalLayout_16.addWidget(self.address_label)
+        self.adrress_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.adrress_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.adrress_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.adrress_edit.setFont(font)
+        self.adrress_edit.setObjectName("adrress_edit")
+        self.horizontalLayout_16.addWidget(self.adrress_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_16)
+        self.horizontalLayout_17 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_17.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_17.setObjectName("horizontalLayout_17")
+        self.contactNo_label = QtWidgets.QLabel(self.profile_footer)
+        self.contactNo_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.contactNo_label.setFont(font)
+        self.contactNo_label.setObjectName("contactNo_label")
+        self.horizontalLayout_17.addWidget(self.contactNo_label)
+        self.contactNo_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.contactNo_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.contactNo_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.contactNo_edit.setFont(font)
+        self.contactNo_edit.setObjectName("contactNo_edit")
+        self.horizontalLayout_17.addWidget(self.contactNo_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_17)
+        self.horizontalLayout_18 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_18.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
+        self.email_label = QtWidgets.QLabel(self.profile_footer)
+        self.email_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.email_label.setFont(font)
+        self.email_label.setObjectName("email_label")
+        self.horizontalLayout_18.addWidget(self.email_label)
+        self.email_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.email_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.email_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.email_edit.setFont(font)
+        self.email_edit.setObjectName("email_edit")
+        self.horizontalLayout_18.addWidget(self.email_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_18)
+        self.horizontalLayout_19 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_19.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_19.setObjectName("horizontalLayout_19")
+        self.password_label = QtWidgets.QLabel(self.profile_footer)
+        self.password_label.setMaximumSize(QtCore.QSize(150, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.password_label.setFont(font)
+        self.password_label.setObjectName("password_label")
+        self.horizontalLayout_19.addWidget(self.password_label)
+        self.password_edit = QtWidgets.QLineEdit(self.profile_footer)
+        self.password_edit.setMinimumSize(QtCore.QSize(300, 0))
+        self.password_edit.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.password_edit.setFont(font)
+        self.password_edit.setObjectName("password_edit")
+        self.horizontalLayout_19.addWidget(self.password_edit)
+        self.verticalLayout_22.addLayout(self.horizontalLayout_19)
+        self.horizontalLayout_20.addLayout(self.verticalLayout_22)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem2)
+        self.profileEdit_button = QtWidgets.QPushButton(self.profile_footer)
+        self.profileEdit_button.setObjectName("profileEdit_button")
+        self.horizontalLayout_20.addWidget(self.profileEdit_button)
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem3)
+        self.verticalLayout_23.addWidget(self.profile_footer)
+        self.verticalLayout_24.addLayout(self.verticalLayout_23)
+        self.verticalLayout_26.addWidget(self.profile_body_2)
+        self.verticalLayout_29.addWidget(self.profile_body)
+        self.verticalLayout_30.addLayout(self.verticalLayout_29)
+        self.stackedWidget.addWidget(self.profile_page)
         self.generateBill_page = QtWidgets.QWidget()
         self.generateBill_page.setStyleSheet("QLabel {\n"
 "    color: #D0F565;\n"
@@ -521,7 +855,7 @@ class Ui_Dashboard_Window(object):
 "}\n"
 "\n"
 "QPushButton::hover {\n"
-"    background-color: #2A2A2A;\n"
+"    background-color: #1C1C1C;\n"
 "    color: #CAFF33;\n"
 "}\n"
 "\n"
@@ -696,8 +1030,8 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setContentsMargins(-1, 10, -1, -1)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_11.addItem(spacerItem2)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_11.addItem(spacerItem4)
         self.print_button = QtWidgets.QPushButton(self.generateBill_frame)
         self.print_button.setMinimumSize(QtCore.QSize(135, 47))
         font = QtGui.QFont()
@@ -722,15 +1056,15 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_11.addWidget(self.calculate_button)
         self.verticalLayout_15.addLayout(self.horizontalLayout_11)
         self.verticalLayout_17.addWidget(self.generateBill_frame)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
-        self.verticalLayout_17.addItem(spacerItem3)
+        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
+        self.verticalLayout_17.addItem(spacerItem5)
         self.verticalLayout_16.addWidget(self.generateBill_body)
         self.stackedWidget.addWidget(self.generateBill_page)
         self.horizontalLayout_7.addWidget(self.stackedWidget)
         Dashboard_Window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Dashboard_Window)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
     def retranslateUi(self, Dashboard_Window):
@@ -748,6 +1082,16 @@ class Ui_Dashboard_Window(object):
         self.label_3.setText(_translate("Dashboard_Window", "Merry Christmas!!!"))
         self.pages_text2.setText(_translate("Dashboard_Window", "Pages / Dashboard"))
         self.mainDashboard_text2.setText(_translate("Dashboard_Window", "Main Dashboard"))
+        self.pages_text_4.setText(_translate("Dashboard_Window", "Pages / Profile"))
+        self.mainDashboard_text_4.setText(_translate("Dashboard_Window", "Profile"))
+        self.profile_label.setText(_translate("Dashboard_Window", "Your Profile"))
+        self.adminID_label.setText(_translate("Dashboard_Window", "Admin ID: "))
+        self.name_label.setText(_translate("Dashboard_Window", "Name: "))
+        self.address_label.setText(_translate("Dashboard_Window", "Address: "))
+        self.contactNo_label.setText(_translate("Dashboard_Window", "Contact no: "))
+        self.email_label.setText(_translate("Dashboard_Window", "Email: "))
+        self.password_label.setText(_translate("Dashboard_Window", "Password: "))
+        self.profileEdit_button.setText(_translate("Dashboard_Window", "Edit"))
         self.pages_text_3.setText(_translate("Dashboard_Window", "Pages / Generate"))
         self.generateBill_text_3.setText(_translate("Dashboard_Window", "Generate Bill"))
         self.calculateBill_label.setText(_translate("Dashboard_Window", "Calculate Bill"))
