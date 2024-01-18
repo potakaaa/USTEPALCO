@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         self.__db_file = "USTEPALCO.db"
         self.__conn = sqlite3.connect(self.__db_file)
         self.__sql = self.__conn.cursor()
+        self.__session_admin_uid = 0
         self.page_view('login')
         global p_kwh 
         self.p_kwh = 11.3997
@@ -176,7 +177,16 @@ class MainWindow(QMainWindow):
         self.ui.generate_button.setStyleSheet("#generate_button {\n"
             "color: #959595; }")
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
-            "color: #959595; }")   
+            "color: #959595; }")
+
+        self.__sql.execute("SELECT * FROM admin WHERE uid = ?",(self.__session_admin_uid,))
+        uid, admin_id, full_name, address, phone_no, email, password = self.__sql.fetchall()[0]
+        self.ui.adminID_edit.setText(admin_id)
+        self.ui.name_edit.setText(full_name)
+        self.ui.adrress_edit.setText(address)
+        self.ui.contactNo_edit.setText(phone_no)
+        self.ui.email_edit.setText(email)
+        self.ui.password_edit.setText("")
 
     def __check_login(self, email, password):
         password = self.secure_password(password) 
@@ -184,8 +194,7 @@ class MainWindow(QMainWindow):
         results = self.__sql.fetchall()
         status = False # False default status means user not exists
         if(len(results) > 0):
-            self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
-            self.__session_username = results[0][5] # Store the user email in session username.
+            self.__session_admin_uid = results[0][0] # Store the admin uid in the session user uid. 
             status = True # Status change value to True if user exists
 
         return status
@@ -214,7 +223,9 @@ class MainWindow(QMainWindow):
     def __get_user_print_data(self, contract_no, fullname):
         self.__sql.execute("SELECT * FROM payment_det pd JOIN users u ON pd.uid = u.uid WHERE u.contract_no = ? AND u.full_name = ?", (contract_no, fullname ))
         results = self.__sql.fetchall()
-        return results
+        if(len(results) > 0):
+            return results
+        return False
     
     def secure_password(self, plaintext):
         seed_text = self.__seed + plaintext
@@ -312,7 +323,14 @@ class MainWindow(QMainWindow):
     
     def on_print_button_pressed(self):
         current_date = datetime.now()
-        user_data  = self.__get_user_print_data('906429','Louies B. Dy')[0]
+        contract_no = self.ui.conNum_edit.text().strip()
+        fullname = self.ui.fullName_edit.text().strip()
+
+        user_data  = self.__get_user_print_data(contract_no,fullname)
+        if(user_data == False):
+            self.show_message("ERROR", "Invalid contract!", QMessageBox.Warning)
+            return
+        user_data = user_data[0]
         fullname = user_data[1]
         address = user_data[2]
         usage = user_data[3]
