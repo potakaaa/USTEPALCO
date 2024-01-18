@@ -484,7 +484,7 @@ QPushButton {
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_1">
        <property name="font">
@@ -1101,7 +1101,7 @@ manage their electricity usage, billing details, and payments.</string>
       <widget class="QWidget" name="reports_page">
        <property name="styleSheet">
         <string notr="true">QLabel {
-	color: #CAFF33;
+	color: #D0F565;
 }
 
 #reports_body {
@@ -1133,7 +1133,7 @@ manage their electricity usage, billing details, and payments.</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QLabel {
-	color: #CAFF33;
+color: #D0F565;
 }
 
 #pages_text_6 {

@@ -614,7 +614,7 @@ class Ui_Dashboard_Window(object):
         self.stackedWidget.addWidget(self.dashboard_page)
         self.reports_page = QtWidgets.QWidget()
         self.reports_page.setStyleSheet("QLabel {\n"
-"    color: #CAFF33;\n"
+"    color: #D0F565;\n"
 "}\n"
 "\n"
 "#reports_body {\n"
@@ -640,7 +640,7 @@ class Ui_Dashboard_Window(object):
         self.header_5 = QtWidgets.QFrame(self.reports_page)
         self.header_5.setMaximumSize(QtCore.QSize(16777215, 80))
         self.header_5.setStyleSheet("QLabel {\n"
-"    color: #CAFF33;\n"
+"color: #D0F565;\n"
 "}\n"
 "\n"
 "#pages_text_6 {\n"
@@ -2032,7 +2032,7 @@ class Ui_Dashboard_Window(object):
         Dashboard_Window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Dashboard_Window)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         self.users_StackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
