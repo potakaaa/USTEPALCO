@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'login_page.ui'
+# Form implementation generated from reading ui file '.\login_page.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,9 +14,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(902, 661)
+        MainWindow.resize(902, 704)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
         MainWindow.setMaximumSize(QtCore.QSize(1280, 895))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/logo/resources/stylized_00000.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("QMainWindow {\n"
 "    background-color: #1C1C1C;\n"
 "    \n"
@@ -112,14 +115,16 @@ class Ui_MainWindow(object):
 "    color: red;\n"
 "}\n"
 "\n"
-"#label_forget {\n"
+"#forget_button {\n"
 "    color: #CAFF33;\n"
-"    margin-right: 68px;\n"
-"    max-width: 620px;\n"
+"    margin-right: 10px;\n"
+"\n"
+"    background-color: transparent;\n"
+"\n"
 "\n"
 "}\n"
 "\n"
-"#label_forget:hover {\n"
+"#forget_button:hover {\n"
 "    color: white;\n"
 "}\n"
 "\n"
@@ -189,14 +194,15 @@ class Ui_MainWindow(object):
         self.edit_password.setEchoMode(QtWidgets.QLineEdit.Password)
         self.edit_password.setObjectName("edit_password")
         self.verticalLayout.addWidget(self.edit_password)
-        self.label_forget = QtWidgets.QLabel(self.frame_2)
+        self.forget_button = QtWidgets.QPushButton(self.frame_2)
         font = QtGui.QFont()
         font.setFamily("DM Sans Medium")
         font.setPointSize(10)
-        self.label_forget.setFont(font)
-        self.label_forget.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_forget.setObjectName("label_forget")
-        self.verticalLayout.addWidget(self.label_forget)
+        self.forget_button.setFont(font)
+        self.forget_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.forget_button.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.forget_button.setObjectName("forget_button")
+        self.verticalLayout.addWidget(self.forget_button)
         self.button_login = QtWidgets.QPushButton(self.frame_2)
         font = QtGui.QFont()
         font.setFamily("DM Sans")
@@ -204,6 +210,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.button_login.setFont(font)
+        self.button_login.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_login.setObjectName("button_login")
         self.verticalLayout.addWidget(self.button_login)
         self.verticalLayout_3.addLayout(self.verticalLayout)
@@ -254,7 +261,7 @@ class Ui_MainWindow(object):
         self.label_logo.setMinimumSize(QtCore.QSize(50, 0))
         self.label_logo.setText("")
         self.label_logo.setTextFormat(QtCore.Qt.PlainText)
-        self.label_logo.setPixmap(QtGui.QPixmap(":/pics/—Pngtree—lightning-icon-electric-logo_8832878.ico"))
+        self.label_logo.setPixmap(QtGui.QPixmap(":/logo/resources/inverted (black bg, resized).png"))
         self.label_logo.setScaledContents(False)
         self.label_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.label_logo.setWordWrap(False)
@@ -293,18 +300,7 @@ class Ui_MainWindow(object):
         self.edit_email.setPlaceholderText(_translate("MainWindow", "example@gmail.com"))
         self.label_password.setText(_translate("MainWindow", "Password*"))
         self.edit_password.setPlaceholderText(_translate("MainWindow", "Min. of 8 characters"))
-        self.label_forget.setText(_translate("MainWindow", "Forget password?"))
+        self.forget_button.setText(_translate("MainWindow", "Forget Password?"))
         self.button_login.setText(_translate("MainWindow", "Login"))
         self.label_logo_text.setText(_translate("MainWindow", "USTEPALCO"))
-
 import resource_rc
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
