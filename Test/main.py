@@ -130,7 +130,7 @@ class MainWindow(QMainWindow):
             "color: #959595; }")
         self.ui.profile_button.setStyleSheet("#profile_button {\n"
             "color: #959595; }")
-    def on_manage_button_pressed(self):
+    def on_manage_button_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(3)
         self.ui.manage_button.setStyleSheet("#manage_button {\n"
             "color: white; }\n"
@@ -143,7 +143,7 @@ class MainWindow(QMainWindow):
             "color: #959595; }")
         self.ui.profile_button.setStyleSheet("#profile_button {\n"
             "color: #959595; }")
-    def on_generate_button_pressed(self):
+    def on_generate_button_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(4)
         self.ui.generate_button.setStyleSheet("#generate_button {\n"
             "color: white; }\n"
@@ -156,7 +156,7 @@ class MainWindow(QMainWindow):
             "color: #959595; }")
         self.ui.profile_button.setStyleSheet("#profile_button {\n"
             "color: #959595; }")
-    def on_profile_button_pressed(self):
+    def on_profile_button_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(5)
         self.ui.profile_button.setStyleSheet("#profile_button {\n"
             "color: white; }\n"
