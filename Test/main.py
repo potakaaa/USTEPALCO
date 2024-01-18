@@ -176,6 +176,13 @@ class MainWindow(QMainWindow):
         self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
             "color: #959595; }")   
 
+        self.ui.adminID_edit.setText(self.__session_user_uid)
+        self.ui.name_edit.setText(self.__NameofUser)
+        self.ui.adrress_edit.setText(self.__AdofUser)
+        self.ui.contactNo_edit.setText(self.__NumOfUser)
+        self.ui.password_edit.setText(self.__PassOfUser)
+        self.ui.email_edit.setText(self.__session_username)
+
     def __check_login(self, email, password):
         password = self.secure_password(password) 
         self.__sql.execute("SELECT * FROM admin WHERE email = ? AND password = ?;",(email, password))
@@ -183,6 +190,10 @@ class MainWindow(QMainWindow):
         status = False # False default status means user not exists
         if(len(results) > 0):
             self.__session_user_uid = results[0][1] # Store the admin ID in the session user uid. 
+            self.__NameofUser = results[0][2]
+            self.__AdofUser = results[0][3]
+            self.__NumOfUser = results[0][4]
+            self.__PassOfUser = results[0][6]
             self.__session_username = results[0][5] # Store the user email in session username.
             status = True # Status change value to True if user exists
 
