@@ -18,6 +18,18 @@ class MainWindow(QMainWindow):
         self.page_view('login')
         
 
+    def on_dashboard_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
+    def on_reports_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
+    def on_manage_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
+    def on_generate_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(4)
+    def on_profile_button_pressed(self):
+        self.ui.stackedWidget.setCurrentIndex(5)
+    
+
     def __init_db(self):
         self.__sql.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT NOT NULL, password TEXT NOT NULL)")
         self.__conn.commit()
