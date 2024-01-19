@@ -283,7 +283,7 @@ class MainWindow(QMainWindow):
             mail = Mail(subject, content, "html")
             mail.sendto(email)
             self.__update_password(temporary_password, email)
-            self.show_message("EMAIL SENT", "Please check your email!", QMessageBox.Information)
+            self.show_message("Email Sent", "Please check your email. Thank you!", QMessageBox.Information)
 
     def page_view(self, view):
         if view == 'login':
@@ -320,12 +320,10 @@ class MainWindow(QMainWindow):
             addedUsag = self.__sql.fetchone()
 
             payCon = int(str(addedUsag)[1:len(addedUsag) - 3]) * self.p_kwh
-            self.ui.dashboardPayment_count.setText("₱ "+ str(format(payCon, ",.3f")))
+            self.ui.dashboardPayment_count.setText("₱ "+ str(format(payCon, ",.2f")))
             
         else:
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
-
-        # self.page_view('dashboard')
     
     def on_forget_button_pressed(self):
         email = self.ui.edit_email.text()
@@ -408,6 +406,7 @@ class MainWindow(QMainWindow):
                 password = self.secure_password(password)
             self.__sql.execute("UPDATE admin SET admin_id = ?, full_name = ?, address = ?, phone_no = ?, email = ?, password = ? WHERE uid = ?",(admin_id, fullname, address, contact_no, email, password, uid))
             self.__conn.commit()
+        self.show_message("PROFILE UPDATED", "Your profile edits has been saved!", QMessageBox.Information)
 
     def on_next_button_pressed(self):     
         nextwidg = self.ui.users_StackedWidget.currentIndex() + 1
