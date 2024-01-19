@@ -358,8 +358,9 @@ class MainWindow(QMainWindow):
         time = str(current_date.strftime("%I:%M %p"))
         transaction_number = random.randint(99999,999999)
 
-        receipt_title = "Electricity_Bill_Receipt-" + date
-        output_file = receipt_title+'.pdf'
+        receipt_title = "Electricity Bill Receipt - " + date 
+        receipt_path = "D:\\Downloads\\Electricity_Bill_Receipt-" + date + str(transaction_number)
+        output_file = receipt_path +'.pdf'
 
         items = [
             (usage, self.p_kwh, (int(usage)*self.p_kwh))
