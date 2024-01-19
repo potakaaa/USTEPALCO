@@ -50,7 +50,7 @@ class MainWindow(QMainWindow):
         self.__dates = [self.ui.paymentDate_row1, self.ui.paymentDate_row2, 
                         self.ui.paymentDate_row3, self.ui.paymentDate_row4, 
                         self.ui.paymentDate_row5, self.ui.paymentDate_row6, 
-                        self.ui.paymentDate_row7, self.ui.paymentAddress_row8]
+                        self.ui.paymentDate_row7, self.ui.paymentDate_row8]
         self.__usage = [self.ui.paymentAmount_row1, self.ui.paymentAmount_row2, 
                         self.ui.paymentAmount_row3, self.ui.paymentAmount_row4, 
                         self.ui.paymentAmount_row5, self.ui.paymentAmount_row6, 
