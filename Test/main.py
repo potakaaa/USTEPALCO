@@ -307,7 +307,7 @@ class MainWindow(QMainWindow):
             self.page_view('dashboard')
             self.ui.stackedWidget.setCurrentIndex(1)
             self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
-            "color: white; }\n"
+            "color: white; }\n")
         else:
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
 
