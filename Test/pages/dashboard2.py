@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dashboard_Window(object):
     def setupUi(self, Dashboard_Window):
         Dashboard_Window.setObjectName("Dashboard_Window")
-        Dashboard_Window.resize(922, 688)
+        Dashboard_Window.resize(1149, 815)
         Dashboard_Window.setMinimumSize(QtCore.QSize(915, 688))
         Dashboard_Window.setMaximumSize(QtCore.QSize(1280, 895))
         icon = QtGui.QIcon()
@@ -42,6 +42,12 @@ class Ui_Dashboard_Window(object):
 "#sidebar {\n"
 "    background-color: #2B2B2B;\n"
 "    border-radius: 15px;\n"
+"}\n"
+"\n"
+"#sidebar QPushButton::hover {\n"
+"    background-color: #1C1C1C;\n"
+"    height: 35px;\n"
+"    border-radius: 10px;\n"
 "}\n"
 "\n"
 "QLabel {\n"
@@ -89,7 +95,7 @@ class Ui_Dashboard_Window(object):
 "    margin-top: 20px;\n"
 "    width: 5px;\n"
 "    height: 25px;\n"
-"    color: #FFFFFF;\n"
+"    color: #959595;\n"
 "    padding-left: 11px;\n"
 "    text-align: left;\n"
 "    background-color: transparent;\n"
@@ -110,6 +116,8 @@ class Ui_Dashboard_Window(object):
 "    color: #CAFF33;\n"
 "    background-color: #1C1C1C;\n"
 "}\n"
+"\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -171,6 +179,7 @@ class Ui_Dashboard_Window(object):
         font.setWeight(75)
         self.dashboard_button.setFont(font)
         self.dashboard_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.dashboard_button.setCheckable(True)
         self.dashboard_button.setObjectName("dashboard_button")
         self.horizontalLayout_2.addWidget(self.dashboard_button)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -191,6 +200,7 @@ class Ui_Dashboard_Window(object):
         font.setWeight(75)
         self.reports_button.setFont(font)
         self.reports_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.reports_button.setCheckable(True)
         self.reports_button.setObjectName("reports_button")
         self.horizontalLayout_3.addWidget(self.reports_button)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -211,6 +221,7 @@ class Ui_Dashboard_Window(object):
         font.setWeight(75)
         self.manage_button.setFont(font)
         self.manage_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.manage_button.setCheckable(True)
         self.manage_button.setObjectName("manage_button")
         self.horizontalLayout_4.addWidget(self.manage_button)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
@@ -231,6 +242,7 @@ class Ui_Dashboard_Window(object):
         font.setWeight(75)
         self.generate_button.setFont(font)
         self.generate_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.generate_button.setCheckable(True)
         self.generate_button.setObjectName("generate_button")
         self.horizontalLayout_5.addWidget(self.generate_button)
         self.verticalLayout.addLayout(self.horizontalLayout_5)
@@ -251,6 +263,7 @@ class Ui_Dashboard_Window(object):
         font.setWeight(75)
         self.profile_button.setFont(font)
         self.profile_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.profile_button.setCheckable(True)
         self.profile_button.setObjectName("profile_button")
         self.horizontalLayout_6.addWidget(self.profile_button)
         self.verticalLayout.addLayout(self.horizontalLayout_6)
@@ -384,17 +397,32 @@ class Ui_Dashboard_Window(object):
         self.verticalLayout_5.addLayout(self.verticalLayout_4)
         self.verticalLayout_6.addWidget(self.header)
         self.dashboard_body = QtWidgets.QFrame(self.dashboard_page)
-        self.dashboard_body.setStyleSheet("#body2 {\n"
+        self.dashboard_body.setStyleSheet("#dashboard_body {\n"
+"\n"
+"}\n"
+"\n"
+"#body2 {\n"
 "    border-color: transparent;\n"
 "}\n"
 "\n"
 "QFrame {\n"
-"    border: 1px solid #D0F565;\n"
 "    border-radius: 20px;\n"
 "}\n"
 "\n"
 "#frame_4, #frame_5, #frame_6 {\n"
-"    margin: 10px 2px 3px 10px;\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 0px;\n"
+"}\n"
+"\n"
+"#dashboardUsers_label, #dashboardPayment_label  {\n"
+"    margin-top: 10px;\n"
+"    margin-left: 5px;\n"
+"}\n"
+"\n"
+"#dashboardUsers_count, #dashboardPayment_count  {\n"
+"    margin-bottom: 10px;\n"
+"    \n"
 "}\n"
 "\n"
 "#frame_7, #frame_8 {\n"
@@ -402,8 +430,32 @@ class Ui_Dashboard_Window(object):
 "}\n"
 "\n"
 "#frame_9 {\n"
-"    margin: 10px 5px 10px 10px;\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 10px;\n"
 "}\n"
+"\n"
+"QPushButton {\n"
+"    height: 80px;\n"
+"    font-family: DM Sans;\n"
+"    font-weight: bold;\n"
+"    font-size: 30px;\n"
+"    color: #1C1C1C;\n"
+"    background-color: #CAFF33;\n"
+"    border-radius: 30px;\n"
+"    margin: 0px 20px;\n"
+"}\n"
+"\n"
+"#calendarWidget {\n"
+"    background-color: lightgreen;\n"
+"}\n"
+"\n"
+"#description {\n"
+"    color: #CEEE70;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
 "\n"
 "\n"
 "\n"
@@ -418,61 +470,1203 @@ class Ui_Dashboard_Window(object):
         self.horizontalLayout_8.setSpacing(15)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
         self.frame_4 = QtWidgets.QFrame(self.dashboard_body)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_4.sizePolicy().hasHeightForWidth())
+        self.frame_4.setSizePolicy(sizePolicy)
         self.frame_4.setMinimumSize(QtCore.QSize(160, 50))
-        self.frame_4.setMaximumSize(QtCore.QSize(16777215, 90))
+        self.frame_4.setMaximumSize(QtCore.QSize(400, 130))
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_4.setObjectName("frame_4")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.frame_4)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
+        self.dashboardUsers_icon = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_icon.setMaximumSize(QtCore.QSize(70, 70))
+        self.dashboardUsers_icon.setText("")
+        self.dashboardUsers_icon.setPixmap(QtGui.QPixmap(":/icons/resources/ui icons/asdf.svg"))
+        self.dashboardUsers_icon.setAlignment(QtCore.Qt.AlignCenter)
+        self.dashboardUsers_icon.setObjectName("dashboardUsers_icon")
+        self.horizontalLayout_9.addWidget(self.dashboardUsers_icon)
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.dashboardUsers_label = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_label.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        self.dashboardUsers_label.setFont(font)
+        self.dashboardUsers_label.setObjectName("dashboardUsers_label")
+        self.verticalLayout_41.addWidget(self.dashboardUsers_label)
+        self.dashboardUsers_count = QtWidgets.QLabel(self.frame_4)
+        self.dashboardUsers_count.setMaximumSize(QtCore.QSize(16777215, 50))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(25)
+        font.setBold(True)
+        font.setWeight(75)
+        self.dashboardUsers_count.setFont(font)
+        self.dashboardUsers_count.setObjectName("dashboardUsers_count")
+        self.verticalLayout_41.addWidget(self.dashboardUsers_count)
+        self.horizontalLayout_9.addLayout(self.verticalLayout_41)
+        self.horizontalLayout_24.addLayout(self.horizontalLayout_9)
         self.horizontalLayout_8.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(self.dashboard_body)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
         self.frame_5.setSizePolicy(sizePolicy)
         self.frame_5.setMinimumSize(QtCore.QSize(160, 70))
-        self.frame_5.setMaximumSize(QtCore.QSize(16777215, 90))
+        self.frame_5.setMaximumSize(QtCore.QSize(400, 130))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
+        self.horizontalLayout_31 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_31.setSpacing(0)
+        self.horizontalLayout_31.setObjectName("horizontalLayout_31")
+        self.horizontalLayout_25 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_25.setObjectName("horizontalLayout_25")
+        self.dashboardPayment_logo = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_logo.setMaximumSize(QtCore.QSize(70, 70))
+        self.dashboardPayment_logo.setText("")
+        self.dashboardPayment_logo.setPixmap(QtGui.QPixmap(":/icons/resources/ui icons/asdfasd.svg"))
+        self.dashboardPayment_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.dashboardPayment_logo.setObjectName("dashboardPayment_logo")
+        self.horizontalLayout_25.addWidget(self.dashboardPayment_logo)
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.dashboardPayment_label = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_label.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(13)
+        font.setBold(False)
+        font.setWeight(50)
+        self.dashboardPayment_label.setFont(font)
+        self.dashboardPayment_label.setObjectName("dashboardPayment_label")
+        self.verticalLayout_42.addWidget(self.dashboardPayment_label)
+        self.dashboardPayment_count = QtWidgets.QLabel(self.frame_5)
+        self.dashboardPayment_count.setMaximumSize(QtCore.QSize(16777215, 50))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(25)
+        font.setBold(True)
+        font.setWeight(75)
+        self.dashboardPayment_count.setFont(font)
+        self.dashboardPayment_count.setObjectName("dashboardPayment_count")
+        self.verticalLayout_42.addWidget(self.dashboardPayment_count)
+        self.horizontalLayout_25.addLayout(self.verticalLayout_42)
+        self.horizontalLayout_31.addLayout(self.horizontalLayout_25)
         self.horizontalLayout_8.addWidget(self.frame_5)
-        self.frame_6 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_6.setMinimumSize(QtCore.QSize(160, 70))
-        self.frame_6.setMaximumSize(QtCore.QSize(16777215, 90))
-        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.frame_6.setObjectName("frame_6")
-        self.horizontalLayout_8.addWidget(self.frame_6)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_8.addItem(spacerItem1)
         self.verticalLayout_3.addLayout(self.horizontalLayout_8)
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_9.setSpacing(15)
-        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.frame_7 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_7.setMinimumSize(QtCore.QSize(420, 160))
-        self.frame_7.setMaximumSize(QtCore.QSize(1500, 300))
-        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_7.setObjectName("frame_7")
-        self.horizontalLayout_9.addWidget(self.frame_7)
-        self.frame_8 = QtWidgets.QFrame(self.dashboard_body)
-        self.frame_8.setMinimumSize(QtCore.QSize(230, 160))
-        self.frame_8.setMaximumSize(QtCore.QSize(400, 300))
-        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_8.setObjectName("frame_8")
-        self.horizontalLayout_9.addWidget(self.frame_8)
-        self.verticalLayout_3.addLayout(self.horizontalLayout_9)
         self.frame_9 = QtWidgets.QFrame(self.dashboard_body)
         self.frame_9.setMinimumSize(QtCore.QSize(670, 100))
         self.frame_9.setMaximumSize(QtCore.QSize(1500, 16777215))
+        self.frame_9.setStyleSheet("")
         self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_9.setObjectName("frame_9")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.frame_9)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_43.addItem(spacerItem2)
+        self.welcometo_label = QtWidgets.QLabel(self.frame_9)
+        self.welcometo_label.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(35)
+        font.setBold(True)
+        font.setWeight(75)
+        self.welcometo_label.setFont(font)
+        self.welcometo_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.welcometo_label.setObjectName("welcometo_label")
+        self.verticalLayout_43.addWidget(self.welcometo_label)
+        self.USTEPALCO_label = QtWidgets.QLabel(self.frame_9)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(70)
+        font.setBold(True)
+        font.setWeight(75)
+        self.USTEPALCO_label.setFont(font)
+        self.USTEPALCO_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.USTEPALCO_label.setObjectName("USTEPALCO_label")
+        self.verticalLayout_43.addWidget(self.USTEPALCO_label)
+        self.description = QtWidgets.QLabel(self.frame_9)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(12)
+        self.description.setFont(font)
+        self.description.setAlignment(QtCore.Qt.AlignCenter)
+        self.description.setObjectName("description")
+        self.verticalLayout_43.addWidget(self.description)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_43.addItem(spacerItem3)
         self.verticalLayout_3.addWidget(self.frame_9)
         self.verticalLayout_6.addWidget(self.dashboard_body)
         self.stackedWidget.addWidget(self.dashboard_page)
+        self.reports_page = QtWidgets.QWidget()
+        self.reports_page.setStyleSheet("QLabel {\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#reports_body {\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 18px;\n"
+"}\n"
+"\n"
+"#paymentDetails_label {\n"
+"    margin: 5px 1px;\n"
+"}\n"
+"\n"
+"#reports_list QLabel {\n"
+"    qproperty-alignment: AlignCenter;\n"
+"    font-family: DM Sans;\n"
+"    font-weight: bold;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"")
+        self.reports_page.setObjectName("reports_page")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.reports_page)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.header_5 = QtWidgets.QFrame(self.reports_page)
+        self.header_5.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.header_5.setStyleSheet("QLabel {\n"
+"color: #D0F565;\n"
+"}\n"
+"\n"
+"#pages_text_6 {\n"
+"    margin-left: 7px;\n"
+"    margin-top: 4px;\n"
+"}\n"
+"\n"
+"#mainDashboard_text_6 {\n"
+"    margin-left: 5px;\n"
+"    margin-top: 3px;\n"
+"}")
+        self.header_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.header_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.header_5.setObjectName("header_5")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.header_5)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_35.setContentsMargins(-1, -1, -1, 10)
+        self.verticalLayout_35.setSpacing(0)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.pages_text_6 = QtWidgets.QLabel(self.header_5)
+        self.pages_text_6.setMaximumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.pages_text_6.setFont(font)
+        self.pages_text_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.pages_text_6.setObjectName("pages_text_6")
+        self.verticalLayout_35.addWidget(self.pages_text_6)
+        self.mainDashboard_text_6 = QtWidgets.QLabel(self.header_5)
+        self.mainDashboard_text_6.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mainDashboard_text_6.setFont(font)
+        self.mainDashboard_text_6.setObjectName("mainDashboard_text_6")
+        self.verticalLayout_35.addWidget(self.mainDashboard_text_6)
+        self.verticalLayout_34.addLayout(self.verticalLayout_35)
+        self.verticalLayout_38.addWidget(self.header_5)
+        self.reports_body = QtWidgets.QFrame(self.reports_page)
+        self.reports_body.setMinimumSize(QtCore.QSize(670, 100))
+        self.reports_body.setMaximumSize(QtCore.QSize(1500, 16777215))
+        self.reports_body.setStyleSheet("#paymentUsers_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#paymentAddress_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#paymentDate_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-right: 10px;\n"
+"    margin-top: 8px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#paymentAmount_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"")
+        self.reports_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.reports_body.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.reports_body.setObjectName("reports_body")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.reports_body)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.reports_body2 = QtWidgets.QFrame(self.reports_body)
+        self.reports_body2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.reports_body2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.reports_body2.setObjectName("reports_body2")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.reports_body2)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.paymentDetails_label = QtWidgets.QLabel(self.reports_body2)
+        self.paymentDetails_label.setMaximumSize(QtCore.QSize(16777215, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.paymentDetails_label.setFont(font)
+        self.paymentDetails_label.setObjectName("paymentDetails_label")
+        self.verticalLayout_40.addWidget(self.paymentDetails_label)
+        self.horizontalLayout_22 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_22.setContentsMargins(0, 8, -1, -1)
+        self.horizontalLayout_22.setObjectName("horizontalLayout_22")
+        self.paymentUsers_label = QtWidgets.QLabel(self.reports_body2)
+        self.paymentUsers_label.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.paymentUsers_label.setFont(font)
+        self.paymentUsers_label.setObjectName("paymentUsers_label")
+        self.horizontalLayout_22.addWidget(self.paymentUsers_label)
+        self.paymentAddress_label = QtWidgets.QLabel(self.reports_body2)
+        self.paymentAddress_label.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.paymentAddress_label.setFont(font)
+        self.paymentAddress_label.setObjectName("paymentAddress_label")
+        self.horizontalLayout_22.addWidget(self.paymentAddress_label)
+        self.paymentDate_label = QtWidgets.QLabel(self.reports_body2)
+        self.paymentDate_label.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.paymentDate_label.setFont(font)
+        self.paymentDate_label.setObjectName("paymentDate_label")
+        self.horizontalLayout_22.addWidget(self.paymentDate_label)
+        self.paymentAmount_label = QtWidgets.QLabel(self.reports_body2)
+        self.paymentAmount_label.setMaximumSize(QtCore.QSize(16777215, 35))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.paymentAmount_label.setFont(font)
+        self.paymentAmount_label.setObjectName("paymentAmount_label")
+        self.horizontalLayout_22.addWidget(self.paymentAmount_label)
+        self.verticalLayout_40.addLayout(self.horizontalLayout_22)
+        self.line_2 = QtWidgets.QFrame(self.reports_body2)
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.verticalLayout_40.addWidget(self.line_2)
+        self.reports_list = QtWidgets.QFrame(self.reports_body2)
+        self.reports_list.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.reports_list.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.reports_list.setObjectName("reports_list")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.reports_list)
+        self.verticalLayout_36.setContentsMargins(0, 0, 10, 0)
+        self.verticalLayout_36.setSpacing(0)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.horizontalLayout_68 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_68.setObjectName("horizontalLayout_68")
+        self.paymentUsers_row1 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row1.setObjectName("paymentUsers_row1")
+        self.horizontalLayout_68.addWidget(self.paymentUsers_row1)
+        self.paymentAddress_row1 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row1.setObjectName("paymentAddress_row1")
+        self.horizontalLayout_68.addWidget(self.paymentAddress_row1)
+        self.paymentDate_row1 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row1.setObjectName("paymentDate_row1")
+        self.horizontalLayout_68.addWidget(self.paymentDate_row1)
+        self.paymentAmount_row1 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row1.setObjectName("paymentAmount_row1")
+        self.horizontalLayout_68.addWidget(self.paymentAmount_row1)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_68)
+        self.horizontalLayout_69 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_69.setObjectName("horizontalLayout_69")
+        self.paymentUsers_row2 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row2.setObjectName("paymentUsers_row2")
+        self.horizontalLayout_69.addWidget(self.paymentUsers_row2)
+        self.paymentAddress_row2 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row2.setObjectName("paymentAddress_row2")
+        self.horizontalLayout_69.addWidget(self.paymentAddress_row2)
+        self.paymentDate_row2 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row2.setObjectName("paymentDate_row2")
+        self.horizontalLayout_69.addWidget(self.paymentDate_row2)
+        self.paymentAmount_row2 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row2.setObjectName("paymentAmount_row2")
+        self.horizontalLayout_69.addWidget(self.paymentAmount_row2)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_69)
+        self.horizontalLayout_70 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_70.setObjectName("horizontalLayout_70")
+        self.paymentUsers_row3 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row3.setObjectName("paymentUsers_row3")
+        self.horizontalLayout_70.addWidget(self.paymentUsers_row3)
+        self.paymentAddress_row3 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row3.setObjectName("paymentAddress_row3")
+        self.horizontalLayout_70.addWidget(self.paymentAddress_row3)
+        self.paymentDate_row3 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row3.setObjectName("paymentDate_row3")
+        self.horizontalLayout_70.addWidget(self.paymentDate_row3)
+        self.paymentAmount_row3 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row3.setObjectName("paymentAmount_row3")
+        self.horizontalLayout_70.addWidget(self.paymentAmount_row3)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_70)
+        self.horizontalLayout_71 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_71.setObjectName("horizontalLayout_71")
+        self.paymentUsers_row4 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row4.setObjectName("paymentUsers_row4")
+        self.horizontalLayout_71.addWidget(self.paymentUsers_row4)
+        self.paymentAddress_row4 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row4.setObjectName("paymentAddress_row4")
+        self.horizontalLayout_71.addWidget(self.paymentAddress_row4)
+        self.paymentDate_row4 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row4.setObjectName("paymentDate_row4")
+        self.horizontalLayout_71.addWidget(self.paymentDate_row4)
+        self.paymentAmount_row4 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row4.setObjectName("paymentAmount_row4")
+        self.horizontalLayout_71.addWidget(self.paymentAmount_row4)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_71)
+        self.horizontalLayout_72 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_72.setObjectName("horizontalLayout_72")
+        self.paymentUsers_row5 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row5.setObjectName("paymentUsers_row5")
+        self.horizontalLayout_72.addWidget(self.paymentUsers_row5)
+        self.paymentAddress_row5 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row5.setObjectName("paymentAddress_row5")
+        self.horizontalLayout_72.addWidget(self.paymentAddress_row5)
+        self.paymentDate_row5 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row5.setObjectName("paymentDate_row5")
+        self.horizontalLayout_72.addWidget(self.paymentDate_row5)
+        self.paymentAmount_row5 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row5.setObjectName("paymentAmount_row5")
+        self.horizontalLayout_72.addWidget(self.paymentAmount_row5)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_72)
+        self.horizontalLayout_78 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_78.setObjectName("horizontalLayout_78")
+        self.paymentUsers_row6 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row6.setObjectName("paymentUsers_row6")
+        self.horizontalLayout_78.addWidget(self.paymentUsers_row6)
+        self.paymentAddress_row6 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row6.setObjectName("paymentAddress_row6")
+        self.horizontalLayout_78.addWidget(self.paymentAddress_row6)
+        self.paymentDate_row6 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row6.setObjectName("paymentDate_row6")
+        self.horizontalLayout_78.addWidget(self.paymentDate_row6)
+        self.paymentAmount_row6 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row6.setObjectName("paymentAmount_row6")
+        self.horizontalLayout_78.addWidget(self.paymentAmount_row6)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_78)
+        self.horizontalLayout_86 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_86.setObjectName("horizontalLayout_86")
+        self.paymentUsers_row7 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row7.setObjectName("paymentUsers_row7")
+        self.horizontalLayout_86.addWidget(self.paymentUsers_row7)
+        self.paymentAddress_row7 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row7.setObjectName("paymentAddress_row7")
+        self.horizontalLayout_86.addWidget(self.paymentAddress_row7)
+        self.paymentDate_row7 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row7.setObjectName("paymentDate_row7")
+        self.horizontalLayout_86.addWidget(self.paymentDate_row7)
+        self.paymentAmount_row7 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row7.setObjectName("paymentAmount_row7")
+        self.horizontalLayout_86.addWidget(self.paymentAmount_row7)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_86)
+        self.horizontalLayout_90 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_90.setObjectName("horizontalLayout_90")
+        self.paymentUsers_row8 = QtWidgets.QLabel(self.reports_list)
+        self.paymentUsers_row8.setObjectName("paymentUsers_row8")
+        self.horizontalLayout_90.addWidget(self.paymentUsers_row8)
+        self.paymentAddress_row8 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAddress_row8.setObjectName("paymentAddress_row8")
+        self.horizontalLayout_90.addWidget(self.paymentAddress_row8)
+        self.paymentDate_row8 = QtWidgets.QLabel(self.reports_list)
+        self.paymentDate_row8.setObjectName("paymentDate_row8")
+        self.horizontalLayout_90.addWidget(self.paymentDate_row8)
+        self.paymentAmount_row8 = QtWidgets.QLabel(self.reports_list)
+        self.paymentAmount_row8.setObjectName("paymentAmount_row8")
+        self.horizontalLayout_90.addWidget(self.paymentAmount_row8)
+        self.verticalLayout_36.addLayout(self.horizontalLayout_90)
+        self.verticalLayout_40.addWidget(self.reports_list)
+        self.verticalLayout_39.addWidget(self.reports_body2)
+        self.verticalLayout_38.addWidget(self.reports_body)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_38.addItem(spacerItem4)
+        self.stackedWidget.addWidget(self.reports_page)
+        self.manage_page = QtWidgets.QWidget()
+        self.manage_page.setStyleSheet("#pages_text_5 {\n"
+"    margin-left: 7px;\n"
+"    margin-top: 4px;\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#mainDashboard_text_5 {\n"
+"    margin-left: 5px;\n"
+"    margin-top: 3px;\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#manage_body2 {\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 18px;\n"
+"    margin: 5px;\n"
+"}\n"
+"\n"
+"#manage_page QLabel {\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#userDetails_label {\n"
+"    margin: 5px;\n"
+"}\n"
+"\n"
+"#users_StackedWidget QLabel {\n"
+"    qproperty-alignment: AlignCenter;\n"
+"    \n"
+"}\n"
+"\n"
+"#next_button {\n"
+"    color: #1C1C1C;\n"
+"    background-color: #CAFF33;\n"
+"    border-radius: 10px;\n"
+"    width: 150px;\n"
+"    height: 37px;\n"
+"}\n"
+"\n"
+"#next_button::hover {\n"
+"    color: #CAFF33;\n"
+"    background-color: #2A2A2A;\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.manage_page.setObjectName("manage_page")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.manage_page)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.header_4 = QtWidgets.QFrame(self.manage_page)
+        self.header_4.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.header_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.header_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.header_4.setObjectName("header_4")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.header_4)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_18.setContentsMargins(-1, -1, -1, 10)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.pages_text_5 = QtWidgets.QLabel(self.header_4)
+        self.pages_text_5.setMaximumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.pages_text_5.setFont(font)
+        self.pages_text_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.pages_text_5.setObjectName("pages_text_5")
+        self.verticalLayout_18.addWidget(self.pages_text_5)
+        self.mainDashboard_text_5 = QtWidgets.QLabel(self.header_4)
+        self.mainDashboard_text_5.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.mainDashboard_text_5.setFont(font)
+        self.mainDashboard_text_5.setObjectName("mainDashboard_text_5")
+        self.verticalLayout_18.addWidget(self.mainDashboard_text_5)
+        self.verticalLayout_10.addLayout(self.verticalLayout_18)
+        self.verticalLayout_33.addWidget(self.header_4)
+        self.manage_body = QtWidgets.QFrame(self.manage_page)
+        self.manage_body.setStyleSheet("#usersName_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersAddress_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersContractNo_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-right: 10px;\n"
+"    margin-top: 8px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"#usersAmount_label {\n"
+"    color: #9A9A9A;\n"
+"    margin-top: 8px;\n"
+"    margin-right: 10px;\n"
+"    qproperty-alignment: AlignCenter;\n"
+"}\n"
+"\n"
+"")
+        self.manage_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.manage_body.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.manage_body.setObjectName("manage_body")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.manage_body)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.manage_body2 = QtWidgets.QFrame(self.manage_body)
+        self.manage_body2.setMinimumSize(QtCore.QSize(670, 100))
+        self.manage_body2.setMaximumSize(QtCore.QSize(1500, 16777215))
+        self.manage_body2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.manage_body2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.manage_body2.setObjectName("manage_body2")
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.manage_body2)
+        self.verticalLayout_31.setObjectName("verticalLayout_31")
+        self.userDetails_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.userDetails_label.setFont(font)
+        self.userDetails_label.setObjectName("userDetails_label")
+        self.verticalLayout_31.addWidget(self.userDetails_label)
+        self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_12.setContentsMargins(0, -1, -1, -1)
+        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
+        self.usersName_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersName_label.setFont(font)
+        self.usersName_label.setObjectName("usersName_label")
+        self.horizontalLayout_12.addWidget(self.usersName_label)
+        self.usersAddress_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.usersAddress_label.setFont(font)
+        self.usersAddress_label.setObjectName("usersAddress_label")
+        self.horizontalLayout_12.addWidget(self.usersAddress_label)
+        self.usersContractNo_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersContractNo_label.setFont(font)
+        self.usersContractNo_label.setObjectName("usersContractNo_label")
+        self.horizontalLayout_12.addWidget(self.usersContractNo_label)
+        self.usersAmount_label = QtWidgets.QLabel(self.manage_body2)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans Medium")
+        font.setPointSize(10)
+        self.usersAmount_label.setFont(font)
+        self.usersAmount_label.setObjectName("usersAmount_label")
+        self.horizontalLayout_12.addWidget(self.usersAmount_label)
+        self.verticalLayout_31.addLayout(self.horizontalLayout_12)
+        self.line = QtWidgets.QFrame(self.manage_body2)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.verticalLayout_31.addWidget(self.line)
+        self.users_StackedWidget = QtWidgets.QStackedWidget(self.manage_body2)
+        self.users_StackedWidget.setStyleSheet("QLabel {\n"
+"    font-family: DM Sans;\n"
+"    font-weight: bold;\n"
+"    font-size: 12px;\n"
+"}")
+        self.users_StackedWidget.setObjectName("users_StackedWidget")
+        self.usersThird_page = QtWidgets.QWidget()
+        self.usersThird_page.setObjectName("usersThird_page")
+        self.verticalLayout_19 = QtWidgets.QVBoxLayout(self.usersThird_page)
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_19.setSpacing(0)
+        self.verticalLayout_19.setObjectName("verticalLayout_19")
+        self.horizontalLayout_65 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_65.setObjectName("horizontalLayout_65")
+        self.row1_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row1_name_3.setObjectName("row1_name_3")
+        self.horizontalLayout_65.addWidget(self.row1_name_3)
+        self.row1_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row1_address_3.setObjectName("row1_address_3")
+        self.horizontalLayout_65.addWidget(self.row1_address_3)
+        self.row1_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row1_contractNo_3.setObjectName("row1_contractNo_3")
+        self.horizontalLayout_65.addWidget(self.row1_contractNo_3)
+        self.row1_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row1_amount_3.setObjectName("row1_amount_3")
+        self.horizontalLayout_65.addWidget(self.row1_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_65)
+        self.horizontalLayout_66 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_66.setObjectName("horizontalLayout_66")
+        self.row2_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row2_name_3.setObjectName("row2_name_3")
+        self.horizontalLayout_66.addWidget(self.row2_name_3)
+        self.row2_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row2_address_3.setObjectName("row2_address_3")
+        self.horizontalLayout_66.addWidget(self.row2_address_3)
+        self.row2_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row2_contractNo_3.setObjectName("row2_contractNo_3")
+        self.horizontalLayout_66.addWidget(self.row2_contractNo_3)
+        self.row2_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row2_amount_3.setObjectName("row2_amount_3")
+        self.horizontalLayout_66.addWidget(self.row2_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_66)
+        self.horizontalLayout_67 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_67.setObjectName("horizontalLayout_67")
+        self.row3_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row3_name_3.setObjectName("row3_name_3")
+        self.horizontalLayout_67.addWidget(self.row3_name_3)
+        self.row3_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row3_address_3.setObjectName("row3_address_3")
+        self.horizontalLayout_67.addWidget(self.row3_address_3)
+        self.row3_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row3_contractNo_3.setObjectName("row3_contractNo_3")
+        self.horizontalLayout_67.addWidget(self.row3_contractNo_3)
+        self.row3_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row3_amount_3.setObjectName("row3_amount_3")
+        self.horizontalLayout_67.addWidget(self.row3_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_67)
+        self.horizontalLayout_63 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_63.setObjectName("horizontalLayout_63")
+        self.row4_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row4_name_3.setObjectName("row4_name_3")
+        self.horizontalLayout_63.addWidget(self.row4_name_3)
+        self.row4_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row4_address_3.setObjectName("row4_address_3")
+        self.horizontalLayout_63.addWidget(self.row4_address_3)
+        self.row4_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row4_contractNo_3.setObjectName("row4_contractNo_3")
+        self.horizontalLayout_63.addWidget(self.row4_contractNo_3)
+        self.row4_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row4_amount_3.setObjectName("row4_amount_3")
+        self.horizontalLayout_63.addWidget(self.row4_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_63)
+        self.horizontalLayout_62 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_62.setObjectName("horizontalLayout_62")
+        self.row5_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row5_name_3.setObjectName("row5_name_3")
+        self.horizontalLayout_62.addWidget(self.row5_name_3)
+        self.row5_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row5_address_3.setObjectName("row5_address_3")
+        self.horizontalLayout_62.addWidget(self.row5_address_3)
+        self.row5_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row5_contractNo_3.setObjectName("row5_contractNo_3")
+        self.horizontalLayout_62.addWidget(self.row5_contractNo_3)
+        self.row5_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row5_amount_3.setObjectName("row5_amount_3")
+        self.horizontalLayout_62.addWidget(self.row5_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_62)
+        self.horizontalLayout_64 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_64.setObjectName("horizontalLayout_64")
+        self.row6_name_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row6_name_3.setObjectName("row6_name_3")
+        self.horizontalLayout_64.addWidget(self.row6_name_3)
+        self.row6_address_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row6_address_3.setObjectName("row6_address_3")
+        self.horizontalLayout_64.addWidget(self.row6_address_3)
+        self.row6_contractNo_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row6_contractNo_3.setObjectName("row6_contractNo_3")
+        self.horizontalLayout_64.addWidget(self.row6_contractNo_3)
+        self.row6_amount_3 = QtWidgets.QLabel(self.usersThird_page)
+        self.row6_amount_3.setObjectName("row6_amount_3")
+        self.horizontalLayout_64.addWidget(self.row6_amount_3)
+        self.verticalLayout_19.addLayout(self.horizontalLayout_64)
+        self.users_StackedWidget.addWidget(self.usersThird_page)
+        self.usersFirst_page = QtWidgets.QWidget()
+        self.usersFirst_page.setObjectName("usersFirst_page")
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.usersFirst_page)
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_27.setSpacing(0)
+        self.verticalLayout_27.setObjectName("verticalLayout_27")
+        self.horizontalLayout_53 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_53.setObjectName("horizontalLayout_53")
+        self.row1_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row1_name.setObjectName("row1_name")
+        self.horizontalLayout_53.addWidget(self.row1_name)
+        self.row1_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row1_address.setObjectName("row1_address")
+        self.horizontalLayout_53.addWidget(self.row1_address)
+        self.row1_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row1_contractNo.setObjectName("row1_contractNo")
+        self.horizontalLayout_53.addWidget(self.row1_contractNo)
+        self.row1_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row1_amount.setObjectName("row1_amount")
+        self.horizontalLayout_53.addWidget(self.row1_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_53)
+        self.horizontalLayout_55 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_55.setObjectName("horizontalLayout_55")
+        self.row2_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row2_name.setObjectName("row2_name")
+        self.horizontalLayout_55.addWidget(self.row2_name)
+        self.row2_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row2_address.setObjectName("row2_address")
+        self.horizontalLayout_55.addWidget(self.row2_address)
+        self.row2_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row2_contractNo.setObjectName("row2_contractNo")
+        self.horizontalLayout_55.addWidget(self.row2_contractNo)
+        self.row2_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row2_amount.setObjectName("row2_amount")
+        self.horizontalLayout_55.addWidget(self.row2_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_55)
+        self.horizontalLayout_50 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_50.setObjectName("horizontalLayout_50")
+        self.row3_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row3_name.setObjectName("row3_name")
+        self.horizontalLayout_50.addWidget(self.row3_name)
+        self.row3_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row3_address.setObjectName("row3_address")
+        self.horizontalLayout_50.addWidget(self.row3_address)
+        self.row3_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row3_contractNo.setObjectName("row3_contractNo")
+        self.horizontalLayout_50.addWidget(self.row3_contractNo)
+        self.row3_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row3_amount.setObjectName("row3_amount")
+        self.horizontalLayout_50.addWidget(self.row3_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_50)
+        self.horizontalLayout_51 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_51.setObjectName("horizontalLayout_51")
+        self.row4_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row4_name.setObjectName("row4_name")
+        self.horizontalLayout_51.addWidget(self.row4_name)
+        self.row4_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row4_address.setObjectName("row4_address")
+        self.horizontalLayout_51.addWidget(self.row4_address)
+        self.row4_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row4_contractNo.setObjectName("row4_contractNo")
+        self.horizontalLayout_51.addWidget(self.row4_contractNo)
+        self.row4_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row4_amount.setObjectName("row4_amount")
+        self.horizontalLayout_51.addWidget(self.row4_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_51)
+        self.horizontalLayout_54 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_54.setObjectName("horizontalLayout_54")
+        self.row5_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row5_name.setObjectName("row5_name")
+        self.horizontalLayout_54.addWidget(self.row5_name)
+        self.row5_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row5_address.setObjectName("row5_address")
+        self.horizontalLayout_54.addWidget(self.row5_address)
+        self.row5_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row5_contractNo.setObjectName("row5_contractNo")
+        self.horizontalLayout_54.addWidget(self.row5_contractNo)
+        self.row5_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row5_amount.setObjectName("row5_amount")
+        self.horizontalLayout_54.addWidget(self.row5_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_54)
+        self.horizontalLayout_52 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_52.setObjectName("horizontalLayout_52")
+        self.row6_name = QtWidgets.QLabel(self.usersFirst_page)
+        self.row6_name.setObjectName("row6_name")
+        self.horizontalLayout_52.addWidget(self.row6_name)
+        self.row6_address = QtWidgets.QLabel(self.usersFirst_page)
+        self.row6_address.setObjectName("row6_address")
+        self.horizontalLayout_52.addWidget(self.row6_address)
+        self.row6_contractNo = QtWidgets.QLabel(self.usersFirst_page)
+        self.row6_contractNo.setObjectName("row6_contractNo")
+        self.horizontalLayout_52.addWidget(self.row6_contractNo)
+        self.row6_amount = QtWidgets.QLabel(self.usersFirst_page)
+        self.row6_amount.setObjectName("row6_amount")
+        self.horizontalLayout_52.addWidget(self.row6_amount)
+        self.verticalLayout_27.addLayout(self.horizontalLayout_52)
+        self.users_StackedWidget.addWidget(self.usersFirst_page)
+        self.usersSecond_page = QtWidgets.QWidget()
+        self.usersSecond_page.setObjectName("usersSecond_page")
+        self.verticalLayout_28 = QtWidgets.QVBoxLayout(self.usersSecond_page)
+        self.verticalLayout_28.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_28.setSpacing(0)
+        self.verticalLayout_28.setObjectName("verticalLayout_28")
+        self.horizontalLayout_59 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_59.setObjectName("horizontalLayout_59")
+        self.row1_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row1_name_2.setObjectName("row1_name_2")
+        self.horizontalLayout_59.addWidget(self.row1_name_2)
+        self.row1_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row1_address_2.setObjectName("row1_address_2")
+        self.horizontalLayout_59.addWidget(self.row1_address_2)
+        self.row1_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row1_contractNo_2.setObjectName("row1_contractNo_2")
+        self.horizontalLayout_59.addWidget(self.row1_contractNo_2)
+        self.row1_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row1_amount_2.setObjectName("row1_amount_2")
+        self.horizontalLayout_59.addWidget(self.row1_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_59)
+        self.horizontalLayout_60 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_60.setObjectName("horizontalLayout_60")
+        self.row2_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row2_name_2.setObjectName("row2_name_2")
+        self.horizontalLayout_60.addWidget(self.row2_name_2)
+        self.row2_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row2_address_2.setObjectName("row2_address_2")
+        self.horizontalLayout_60.addWidget(self.row2_address_2)
+        self.row2_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row2_contractNo_2.setObjectName("row2_contractNo_2")
+        self.horizontalLayout_60.addWidget(self.row2_contractNo_2)
+        self.row2_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row2_amount_2.setObjectName("row2_amount_2")
+        self.horizontalLayout_60.addWidget(self.row2_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_60)
+        self.horizontalLayout_61 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_61.setObjectName("horizontalLayout_61")
+        self.row3_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row3_name_2.setObjectName("row3_name_2")
+        self.horizontalLayout_61.addWidget(self.row3_name_2)
+        self.row3_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row3_address_2.setObjectName("row3_address_2")
+        self.horizontalLayout_61.addWidget(self.row3_address_2)
+        self.row3_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row3_contractNo_2.setObjectName("row3_contractNo_2")
+        self.horizontalLayout_61.addWidget(self.row3_contractNo_2)
+        self.row3_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row3_amount_2.setObjectName("row3_amount_2")
+        self.horizontalLayout_61.addWidget(self.row3_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_61)
+        self.horizontalLayout_57 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_57.setObjectName("horizontalLayout_57")
+        self.row4_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row4_name_2.setObjectName("row4_name_2")
+        self.horizontalLayout_57.addWidget(self.row4_name_2)
+        self.row4_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row4_address_2.setObjectName("row4_address_2")
+        self.horizontalLayout_57.addWidget(self.row4_address_2)
+        self.row4_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row4_contractNo_2.setObjectName("row4_contractNo_2")
+        self.horizontalLayout_57.addWidget(self.row4_contractNo_2)
+        self.row4_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row4_amount_2.setObjectName("row4_amount_2")
+        self.horizontalLayout_57.addWidget(self.row4_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_57)
+        self.horizontalLayout_56 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_56.setObjectName("horizontalLayout_56")
+        self.row5_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row5_name_2.setObjectName("row5_name_2")
+        self.horizontalLayout_56.addWidget(self.row5_name_2)
+        self.row5_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row5_address_2.setObjectName("row5_address_2")
+        self.horizontalLayout_56.addWidget(self.row5_address_2)
+        self.row5_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row5_contractNo_2.setObjectName("row5_contractNo_2")
+        self.horizontalLayout_56.addWidget(self.row5_contractNo_2)
+        self.row5_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row5_amount_2.setObjectName("row5_amount_2")
+        self.horizontalLayout_56.addWidget(self.row5_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_56)
+        self.horizontalLayout_58 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_58.setObjectName("horizontalLayout_58")
+        self.row6_name_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row6_name_2.setObjectName("row6_name_2")
+        self.horizontalLayout_58.addWidget(self.row6_name_2)
+        self.row6_address_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row6_address_2.setObjectName("row6_address_2")
+        self.horizontalLayout_58.addWidget(self.row6_address_2)
+        self.row6_contractNo_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row6_contractNo_2.setObjectName("row6_contractNo_2")
+        self.horizontalLayout_58.addWidget(self.row6_contractNo_2)
+        self.row6_amount_2 = QtWidgets.QLabel(self.usersSecond_page)
+        self.row6_amount_2.setObjectName("row6_amount_2")
+        self.horizontalLayout_58.addWidget(self.row6_amount_2)
+        self.verticalLayout_28.addLayout(self.horizontalLayout_58)
+        self.users_StackedWidget.addWidget(self.usersSecond_page)
+        self.verticalLayout_31.addWidget(self.users_StackedWidget)
+        self.verticalLayout_32.addWidget(self.manage_body2)
+        self.nextButton_frame = QtWidgets.QFrame(self.manage_body)
+        self.nextButton_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.nextButton_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.nextButton_frame.setObjectName("nextButton_frame")
+        self.horizontalLayout_21 = QtWidgets.QHBoxLayout(self.nextButton_frame)
+        self.horizontalLayout_21.setObjectName("horizontalLayout_21")
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_21.addItem(spacerItem5)
+        self.next_button = QtWidgets.QPushButton(self.nextButton_frame)
+        self.next_button.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.next_button.setFont(font)
+        self.next_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.next_button.setObjectName("next_button")
+        self.horizontalLayout_21.addWidget(self.next_button)
+        self.verticalLayout_32.addWidget(self.nextButton_frame)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 100, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout_32.addItem(spacerItem6)
+        self.verticalLayout_33.addWidget(self.manage_body)
+        self.stackedWidget.addWidget(self.manage_page)
+        self.generateBill_page = QtWidgets.QWidget()
+        self.generateBill_page.setStyleSheet("QLabel {\n"
+"    color: #D0F565;\n"
+"}\n"
+"\n"
+"#pages_text_3 {\n"
+"    margin-left: 7px;\n"
+"    margin-top: 4px;\n"
+"}\n"
+"\n"
+"#mainDashboard_text_3 {\n"
+"    margin-left: 5px;\n"
+"    margin-top: 3px;\n"
+"}\n"
+"\n"
+"#generateBill_frame {\n"
+"    vertical-align: top;\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 10px;\n"
+"    background-color: transparent;\n"
+"    color: white;\n"
+"    margin: 0px 10px;\n"
+"    padding: 5px 10px;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    margin-top: 7px;\n"
+"    margin-left: 6px;\n"
+"}\n"
+"\n"
+"#calculateBill_label {\n"
+"    margin-top: 15px;\n"
+"    margin-left: 8px;\n"
+"}\n"
+"\n"
+"#conNum_label {\n"
+"    margin-top: 12px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    margin: 5px;\n"
+"    background-color: #CAFF33;\n"
+"    color: #2A2A2A;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"    background-color: #1C1C1C;\n"
+"    color: #CAFF33;\n"
+"}\n"
+"\n"
+"")
+        self.generateBill_page.setObjectName("generateBill_page")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.generateBill_page)
+        self.verticalLayout_16.setContentsMargins(9, -1, -1, -1)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.header_2 = QtWidgets.QFrame(self.generateBill_page)
+        self.header_2.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.header_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.header_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.header_2.setObjectName("header_2")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.header_2)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_8.setContentsMargins(-1, -1, -1, 10)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.pages_text_3 = QtWidgets.QLabel(self.header_2)
+        self.pages_text_3.setMaximumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.pages_text_3.setFont(font)
+        self.pages_text_3.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.pages_text_3.setObjectName("pages_text_3")
+        self.verticalLayout_8.addWidget(self.pages_text_3)
+        self.generateBill_text_3 = QtWidgets.QLabel(self.header_2)
+        self.generateBill_text_3.setMaximumSize(QtCore.QSize(200, 40))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.generateBill_text_3.setFont(font)
+        self.generateBill_text_3.setObjectName("generateBill_text_3")
+        self.verticalLayout_8.addWidget(self.generateBill_text_3)
+        self.verticalLayout_7.addLayout(self.verticalLayout_8)
+        self.verticalLayout_16.addWidget(self.header_2)
+        self.generateBill_body = QtWidgets.QFrame(self.generateBill_page)
+        self.generateBill_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.generateBill_body.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.generateBill_body.setObjectName("generateBill_body")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.generateBill_body)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.generateBill_frame = QtWidgets.QFrame(self.generateBill_body)
+        self.generateBill_frame.setMaximumSize(QtCore.QSize(16777215, 450))
+        self.generateBill_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.generateBill_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.generateBill_frame.setObjectName("generateBill_frame")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.generateBill_frame)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.calculateBill_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.calculateBill_label.setFont(font)
+        self.calculateBill_label.setObjectName("calculateBill_label")
+        self.verticalLayout_15.addWidget(self.calculateBill_label)
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.conNum_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.conNum_label.setFont(font)
+        self.conNum_label.setObjectName("conNum_label")
+        self.verticalLayout_9.addWidget(self.conNum_label)
+        self.conNum_edit = QtWidgets.QLineEdit(self.generateBill_frame)
+        self.conNum_edit.setMinimumSize(QtCore.QSize(0, 32))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.conNum_edit.setFont(font)
+        self.conNum_edit.setObjectName("conNum_edit")
+        self.verticalLayout_9.addWidget(self.conNum_edit)
+        self.verticalLayout_15.addLayout(self.verticalLayout_9)
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.fullName_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.fullName_label.setFont(font)
+        self.fullName_label.setObjectName("fullName_label")
+        self.verticalLayout_11.addWidget(self.fullName_label)
+        self.fullName_edit = QtWidgets.QLineEdit(self.generateBill_frame)
+        self.fullName_edit.setMinimumSize(QtCore.QSize(0, 32))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.fullName_edit.setFont(font)
+        self.fullName_edit.setObjectName("fullName_edit")
+        self.verticalLayout_11.addWidget(self.fullName_edit)
+        self.verticalLayout_15.addLayout(self.verticalLayout_11)
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.dueDate_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.dueDate_label.setFont(font)
+        self.dueDate_label.setObjectName("dueDate_label")
+        self.verticalLayout_12.addWidget(self.dueDate_label)
+        self.dueDate_edit = QtWidgets.QLineEdit(self.generateBill_frame)
+        self.dueDate_edit.setMinimumSize(QtCore.QSize(0, 32))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.dueDate_edit.setFont(font)
+        self.dueDate_edit.setObjectName("dueDate_edit")
+        self.verticalLayout_12.addWidget(self.dueDate_edit)
+        self.horizontalLayout_10.addLayout(self.verticalLayout_12)
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.pesokwh_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pesokwh_label.setFont(font)
+        self.pesokwh_label.setObjectName("pesokwh_label")
+        self.verticalLayout_13.addWidget(self.pesokwh_label)
+        self.pesokwh_edit = QtWidgets.QLineEdit(self.generateBill_frame)
+        self.pesokwh_edit.setMinimumSize(QtCore.QSize(0, 32))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        self.pesokwh_edit.setFont(font)
+        self.pesokwh_edit.setReadOnly(True)
+        self.pesokwh_edit.setObjectName("pesokwh_edit")
+        self.verticalLayout_13.addWidget(self.pesokwh_edit)
+        self.horizontalLayout_10.addLayout(self.verticalLayout_13)
+        self.verticalLayout_15.addLayout(self.horizontalLayout_10)
+        self.verticalLayout_14 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_14.setObjectName("verticalLayout_14")
+        self.billDue_label = QtWidgets.QLabel(self.generateBill_frame)
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.billDue_label.setFont(font)
+        self.billDue_label.setObjectName("billDue_label")
+        self.verticalLayout_14.addWidget(self.billDue_label)
+        self.billDue_edit = QtWidgets.QLineEdit(self.generateBill_frame)
+        self.billDue_edit.setMinimumSize(QtCore.QSize(0, 50))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.billDue_edit.setFont(font)
+        self.billDue_edit.setAlignment(QtCore.Qt.AlignCenter)
+        self.billDue_edit.setReadOnly(True)
+        self.billDue_edit.setPlaceholderText("")
+        self.billDue_edit.setObjectName("billDue_edit")
+        self.verticalLayout_14.addWidget(self.billDue_edit)
+        self.verticalLayout_15.addLayout(self.verticalLayout_14)
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_11.setContentsMargins(-1, 10, -1, -1)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_11.addItem(spacerItem7)
+        self.print_button = QtWidgets.QPushButton(self.generateBill_frame)
+        self.print_button.setMinimumSize(QtCore.QSize(135, 47))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.print_button.setFont(font)
+        self.print_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.print_button.setObjectName("print_button")
+        self.horizontalLayout_11.addWidget(self.print_button)
+        self.calculate_button = QtWidgets.QPushButton(self.generateBill_frame)
+        self.calculate_button.setMinimumSize(QtCore.QSize(135, 47))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.calculate_button.setFont(font)
+        self.calculate_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.calculate_button.setObjectName("calculate_button")
+        self.horizontalLayout_11.addWidget(self.calculate_button)
+        self.verticalLayout_15.addLayout(self.horizontalLayout_11)
+        self.verticalLayout_17.addWidget(self.generateBill_frame)
+        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
+        self.verticalLayout_17.addItem(spacerItem8)
+        self.verticalLayout_16.addWidget(self.generateBill_body)
+        self.stackedWidget.addWidget(self.generateBill_page)
         self.profile_page = QtWidgets.QWidget()
         self.profile_page.setStyleSheet("#pages_text_4 {\n"
 "    margin-left: 7px;\n"
@@ -490,6 +1684,13 @@ class Ui_Dashboard_Window(object):
 "    background-color: #CAFF33;\n"
 "    margin: 12px;\n"
 "    border-radius: 25px;\n"
+"}\n"
+"\n"
+"\n"
+"#profile_body {\n"
+"    background-color: #2A2A2A;\n"
+"    border-radius: 40px;\n"
+"    margin: 5px 10px;\n"
 "}\n"
 "\n"
 "#profile_label {\n"
@@ -517,6 +1718,10 @@ class Ui_Dashboard_Window(object):
 "    \n"
 "}\n"
 "\n"
+"#profile_footer QLineEdit::focus {\n"
+"    border: 1px solid white;\n"
+"}\n"
+"\n"
 "#adminID_label {\n"
 "    margin-right: 20px;\n"
 "}\n"
@@ -542,10 +1747,15 @@ class Ui_Dashboard_Window(object):
 "}\n"
 "\n"
 "#profileEdit_button {\n"
-"    height: 25px;\n"
 "    background-color: #CAFF33;\n"
 "    color: #232325;\n"
+"    border-radius: 15px;\n"
 "\n"
+"}\n"
+"\n"
+"#profileEdit_button::hover {\n"
+"    background-color: #2B2B2B;\n"
+"    color: #CAFF33;\n"
 "}")
         self.profile_page.setObjectName("profile_page")
         self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.profile_page)
@@ -790,287 +2000,40 @@ class Ui_Dashboard_Window(object):
         font.setBold(True)
         font.setWeight(75)
         self.password_edit.setFont(font)
+        self.password_edit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_edit.setReadOnly(True)
         self.password_edit.setObjectName("password_edit")
         self.horizontalLayout_19.addWidget(self.password_edit)
         self.verticalLayout_22.addLayout(self.horizontalLayout_19)
         self.horizontalLayout_20.addLayout(self.verticalLayout_22)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem2)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem9)
         self.profileEdit_button = QtWidgets.QPushButton(self.profile_footer)
+        self.profileEdit_button.setMinimumSize(QtCore.QSize(100, 40))
+        self.profileEdit_button.setMaximumSize(QtCore.QSize(130, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("DM Sans")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.profileEdit_button.setFont(font)
+        self.profileEdit_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.profileEdit_button.setObjectName("profileEdit_button")
         self.horizontalLayout_20.addWidget(self.profileEdit_button)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem3)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem10)
         self.verticalLayout_23.addWidget(self.profile_footer)
         self.verticalLayout_24.addLayout(self.verticalLayout_23)
         self.verticalLayout_26.addWidget(self.profile_body_2)
         self.verticalLayout_29.addWidget(self.profile_body)
         self.verticalLayout_30.addLayout(self.verticalLayout_29)
         self.stackedWidget.addWidget(self.profile_page)
-        self.generateBill_page = QtWidgets.QWidget()
-        self.generateBill_page.setStyleSheet("QLabel {\n"
-"    color: #D0F565;\n"
-"}\n"
-"\n"
-"#pages_text_3 {\n"
-"    margin-left: 7px;\n"
-"    margin-top: 4px;\n"
-"}\n"
-"\n"
-"#mainDashboard_text_3 {\n"
-"    margin-left: 5px;\n"
-"    margin-top: 3px;\n"
-"}\n"
-"\n"
-"#generateBill_frame {\n"
-"    vertical-align: top;\n"
-"    background-color: #2A2A2A;\n"
-"    border-radius: 12px;\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit {\n"
-"    border: 1px solid white;\n"
-"    border-radius: 10px;\n"
-"    background-color: transparent;\n"
-"    color: white;\n"
-"    margin: 0px 10px;\n"
-"    padding: 5px 10px;\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"    margin-top: 7px;\n"
-"    margin-left: 6px;\n"
-"}\n"
-"\n"
-"#calculateBill_label {\n"
-"    margin-top: 15px;\n"
-"    margin-left: 8px;\n"
-"}\n"
-"\n"
-"#conNum_label {\n"
-"    margin-top: 12px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    margin: 5px;\n"
-"    background-color: #CAFF33;\n"
-"    color: #2A2A2A;\n"
-"    border-radius: 12px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"    background-color: #1C1C1C;\n"
-"    color: #CAFF33;\n"
-"}\n"
-"\n"
-"")
-        self.generateBill_page.setObjectName("generateBill_page")
-        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.generateBill_page)
-        self.verticalLayout_16.setContentsMargins(9, -1, -1, -1)
-        self.verticalLayout_16.setObjectName("verticalLayout_16")
-        self.header_2 = QtWidgets.QFrame(self.generateBill_page)
-        self.header_2.setMaximumSize(QtCore.QSize(16777215, 80))
-        self.header_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.header_2.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.header_2.setObjectName("header_2")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.header_2)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_8.setContentsMargins(-1, -1, -1, 10)
-        self.verticalLayout_8.setSpacing(0)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.pages_text_3 = QtWidgets.QLabel(self.header_2)
-        self.pages_text_3.setMaximumSize(QtCore.QSize(150, 30))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        self.pages_text_3.setFont(font)
-        self.pages_text_3.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.pages_text_3.setObjectName("pages_text_3")
-        self.verticalLayout_8.addWidget(self.pages_text_3)
-        self.generateBill_text_3 = QtWidgets.QLabel(self.header_2)
-        self.generateBill_text_3.setMaximumSize(QtCore.QSize(200, 40))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
-        self.generateBill_text_3.setFont(font)
-        self.generateBill_text_3.setObjectName("generateBill_text_3")
-        self.verticalLayout_8.addWidget(self.generateBill_text_3)
-        self.verticalLayout_7.addLayout(self.verticalLayout_8)
-        self.verticalLayout_16.addWidget(self.header_2)
-        self.generateBill_body = QtWidgets.QFrame(self.generateBill_page)
-        self.generateBill_body.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.generateBill_body.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.generateBill_body.setObjectName("generateBill_body")
-        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.generateBill_body)
-        self.verticalLayout_17.setObjectName("verticalLayout_17")
-        self.generateBill_frame = QtWidgets.QFrame(self.generateBill_body)
-        self.generateBill_frame.setMaximumSize(QtCore.QSize(16777215, 450))
-        self.generateBill_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.generateBill_frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.generateBill_frame.setObjectName("generateBill_frame")
-        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.generateBill_frame)
-        self.verticalLayout_15.setObjectName("verticalLayout_15")
-        self.calculateBill_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
-        self.calculateBill_label.setFont(font)
-        self.calculateBill_label.setObjectName("calculateBill_label")
-        self.verticalLayout_15.addWidget(self.calculateBill_label)
-        self.verticalLayout_9 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_9.setObjectName("verticalLayout_9")
-        self.conNum_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.conNum_label.setFont(font)
-        self.conNum_label.setObjectName("conNum_label")
-        self.verticalLayout_9.addWidget(self.conNum_label)
-        self.conNum_edit = QtWidgets.QLineEdit(self.generateBill_frame)
-        self.conNum_edit.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        self.conNum_edit.setFont(font)
-        self.conNum_edit.setObjectName("conNum_edit")
-        self.verticalLayout_9.addWidget(self.conNum_edit)
-        self.verticalLayout_15.addLayout(self.verticalLayout_9)
-        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_11.setObjectName("verticalLayout_11")
-        self.fullName_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.fullName_label.setFont(font)
-        self.fullName_label.setObjectName("fullName_label")
-        self.verticalLayout_11.addWidget(self.fullName_label)
-        self.fullName_edit = QtWidgets.QLineEdit(self.generateBill_frame)
-        self.fullName_edit.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        self.fullName_edit.setFont(font)
-        self.fullName_edit.setObjectName("fullName_edit")
-        self.verticalLayout_11.addWidget(self.fullName_edit)
-        self.verticalLayout_15.addLayout(self.verticalLayout_11)
-        self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
-        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_12.setObjectName("verticalLayout_12")
-        self.dueDate_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.dueDate_label.setFont(font)
-        self.dueDate_label.setObjectName("dueDate_label")
-        self.verticalLayout_12.addWidget(self.dueDate_label)
-        self.dueDate_edit = QtWidgets.QLineEdit(self.generateBill_frame)
-        self.dueDate_edit.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        self.dueDate_edit.setFont(font)
-        self.dueDate_edit.setObjectName("dueDate_edit")
-        self.verticalLayout_12.addWidget(self.dueDate_edit)
-        self.horizontalLayout_10.addLayout(self.verticalLayout_12)
-        self.verticalLayout_13 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.pesokwh_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.pesokwh_label.setFont(font)
-        self.pesokwh_label.setObjectName("pesokwh_label")
-        self.verticalLayout_13.addWidget(self.pesokwh_label)
-        self.pesokwh_edit = QtWidgets.QLineEdit(self.generateBill_frame)
-        self.pesokwh_edit.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        self.pesokwh_edit.setFont(font)
-        self.pesokwh_edit.setReadOnly(True)
-        self.pesokwh_edit.setObjectName("pesokwh_edit")
-        self.verticalLayout_13.addWidget(self.pesokwh_edit)
-        self.horizontalLayout_10.addLayout(self.verticalLayout_13)
-        self.verticalLayout_15.addLayout(self.horizontalLayout_10)
-        self.verticalLayout_14 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_14.setObjectName("verticalLayout_14")
-        self.billDue_label = QtWidgets.QLabel(self.generateBill_frame)
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.billDue_label.setFont(font)
-        self.billDue_label.setObjectName("billDue_label")
-        self.verticalLayout_14.addWidget(self.billDue_label)
-        self.billDue_edit = QtWidgets.QLineEdit(self.generateBill_frame)
-        self.billDue_edit.setMinimumSize(QtCore.QSize(0, 50))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(15)
-        font.setBold(True)
-        font.setWeight(75)
-        self.billDue_edit.setFont(font)
-        self.billDue_edit.setAlignment(QtCore.Qt.AlignCenter)
-        self.billDue_edit.setReadOnly(True)
-        self.billDue_edit.setPlaceholderText("")
-        self.billDue_edit.setObjectName("billDue_edit")
-        self.verticalLayout_14.addWidget(self.billDue_edit)
-        self.verticalLayout_15.addLayout(self.verticalLayout_14)
-        self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_11.setContentsMargins(-1, 10, -1, -1)
-        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_11.addItem(spacerItem4)
-        self.print_button = QtWidgets.QPushButton(self.generateBill_frame)
-        self.print_button.setMinimumSize(QtCore.QSize(135, 47))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.print_button.setFont(font)
-        self.print_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.print_button.setObjectName("print_button")
-        self.horizontalLayout_11.addWidget(self.print_button)
-        self.calculate_button = QtWidgets.QPushButton(self.generateBill_frame)
-        self.calculate_button.setMinimumSize(QtCore.QSize(135, 47))
-        font = QtGui.QFont()
-        font.setFamily("DM Sans")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.calculate_button.setFont(font)
-        self.calculate_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.calculate_button.setObjectName("calculate_button")
-        self.horizontalLayout_11.addWidget(self.calculate_button)
-        self.verticalLayout_15.addLayout(self.horizontalLayout_11)
-        self.verticalLayout_17.addWidget(self.generateBill_frame)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
-        self.verticalLayout_17.addItem(spacerItem5)
-        self.verticalLayout_16.addWidget(self.generateBill_body)
-        self.stackedWidget.addWidget(self.generateBill_page)
         self.horizontalLayout_7.addWidget(self.stackedWidget)
         Dashboard_Window.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Dashboard_Window)
         self.stackedWidget.setCurrentIndex(2)
+        self.users_StackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dashboard_Window)
 
     def retranslateUi(self, Dashboard_Window):
@@ -1088,16 +2051,134 @@ class Ui_Dashboard_Window(object):
         self.label_3.setText(_translate("Dashboard_Window", "Merry Christmas!!!"))
         self.pages_text2.setText(_translate("Dashboard_Window", "Pages / Dashboard"))
         self.mainDashboard_text2.setText(_translate("Dashboard_Window", "Main Dashboard"))
-        self.pages_text_4.setText(_translate("Dashboard_Window", "Pages / Profile"))
-        self.mainDashboard_text_4.setText(_translate("Dashboard_Window", "Profile"))
-        self.profile_label.setText(_translate("Dashboard_Window", "Your Profile"))
-        self.adminID_label.setText(_translate("Dashboard_Window", "Admin ID: "))
-        self.name_label.setText(_translate("Dashboard_Window", "Name: "))
-        self.address_label.setText(_translate("Dashboard_Window", "Address: "))
-        self.contactNo_label.setText(_translate("Dashboard_Window", "Contact no: "))
-        self.email_label.setText(_translate("Dashboard_Window", "Email: "))
-        self.password_label.setText(_translate("Dashboard_Window", "Password: "))
-        self.profileEdit_button.setText(_translate("Dashboard_Window", "Edit"))
+        self.dashboardUsers_label.setText(_translate("Dashboard_Window", "Total Users"))
+        self.dashboardUsers_count.setText(_translate("Dashboard_Window", "50"))
+        self.dashboardPayment_label.setText(_translate("Dashboard_Window", "Total Payments"))
+        self.dashboardPayment_count.setText(_translate("Dashboard_Window", "₱ 50, 000"))
+        self.welcometo_label.setText(_translate("Dashboard_Window", "Welcome to"))
+        self.USTEPALCO_label.setText(_translate("Dashboard_Window", "USTEPALCO!"))
+        self.description.setText(_translate("Dashboard_Window", "An Electric Billing System built in Python and PyQt5 - empowering USTP \n"
+"students to ditch paper bills and long lines, offering convenient online access to \n"
+"manage their electricity usage, billing details, and payments."))
+        self.pages_text_6.setText(_translate("Dashboard_Window", "Pages / Reports"))
+        self.mainDashboard_text_6.setText(_translate("Dashboard_Window", "Reports"))
+        self.paymentDetails_label.setText(_translate("Dashboard_Window", "Payment Details"))
+        self.paymentUsers_label.setText(_translate("Dashboard_Window", "Users"))
+        self.paymentAddress_label.setText(_translate("Dashboard_Window", "Address"))
+        self.paymentDate_label.setText(_translate("Dashboard_Window", "Date"))
+        self.paymentAmount_label.setText(_translate("Dashboard_Window", "Amount"))
+        self.paymentUsers_row1.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row1.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row1.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row1.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row4.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row4.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row4.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row4.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row5.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row5.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row5.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row5.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row6.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row6.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row6.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row6.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row7.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row7.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row7.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row7.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentUsers_row8.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAddress_row8.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentDate_row8.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.paymentAmount_row8.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.pages_text_5.setText(_translate("Dashboard_Window", "Pages / Users"))
+        self.mainDashboard_text_5.setText(_translate("Dashboard_Window", "Manage Users"))
+        self.userDetails_label.setText(_translate("Dashboard_Window", "User Details"))
+        self.usersName_label.setText(_translate("Dashboard_Window", "Name"))
+        self.usersAddress_label.setText(_translate("Dashboard_Window", "Address"))
+        self.usersContractNo_label.setText(_translate("Dashboard_Window", "Contract No."))
+        self.usersAmount_label.setText(_translate("Dashboard_Window", "Amount Due"))
+        self.row1_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_name_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_address_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_contractNo_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_amount_3.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_name.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_address.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_contractNo.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_amount.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row1_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row2_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row3_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row4_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row5_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_name_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_address_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_contractNo_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.row6_amount_2.setText(_translate("Dashboard_Window", "TextLabel"))
+        self.next_button.setText(_translate("Dashboard_Window", "Next"))
         self.pages_text_3.setText(_translate("Dashboard_Window", "Pages / Generate"))
         self.generateBill_text_3.setText(_translate("Dashboard_Window", "Generate Bill"))
         self.calculateBill_label.setText(_translate("Dashboard_Window", "Calculate Bill"))
@@ -1113,4 +2194,14 @@ class Ui_Dashboard_Window(object):
         self.billDue_label.setText(_translate("Dashboard_Window", "Bill Due"))
         self.print_button.setText(_translate("Dashboard_Window", "Print"))
         self.calculate_button.setText(_translate("Dashboard_Window", "Calculate"))
+        self.pages_text_4.setText(_translate("Dashboard_Window", "Pages / Profile"))
+        self.mainDashboard_text_4.setText(_translate("Dashboard_Window", "Profile"))
+        self.profile_label.setText(_translate("Dashboard_Window", "Your Profile"))
+        self.adminID_label.setText(_translate("Dashboard_Window", "Admin ID: "))
+        self.name_label.setText(_translate("Dashboard_Window", "Name: "))
+        self.address_label.setText(_translate("Dashboard_Window", "Address: "))
+        self.contactNo_label.setText(_translate("Dashboard_Window", "Contact no: "))
+        self.email_label.setText(_translate("Dashboard_Window", "Email: "))
+        self.password_label.setText(_translate("Dashboard_Window", "Password: "))
+        self.profileEdit_button.setText(_translate("Dashboard_Window", "Edit"))
 import resource_rc

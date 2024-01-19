@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>902</width>
-    <height>661</height>
+    <height>704</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -24,6 +24,10 @@
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource.qrc">
+    <normaloff>:/logo/resources/stylized_00000.png</normaloff>:/logo/resources/stylized_00000.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
@@ -138,14 +142,16 @@ QPushButton {
 	color: red;
 }
 
-#label_forget {
+#forget_button {
 	color: #CAFF33;
-	margin-right: 68px;
-	max-width: 620px;
+	margin-right: 10px;
+
+	background-color: transparent;
+
 
 }
 
-#label_forget:hover {
+#forget_button:hover {
 	color: white;
 }
 
@@ -270,18 +276,21 @@ QPushButton {
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_forget">
+          <widget class="QPushButton" name="forget_button">
            <property name="font">
             <font>
              <family>DM Sans Medium</family>
              <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>Forget password?</string>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="text">
+            <string>Forget Password?</string>
            </property>
           </widget>
          </item>
@@ -294,6 +303,9 @@ QPushButton {
              <weight>75</weight>
              <bold>true</bold>
             </font>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
            </property>
            <property name="text">
             <string>Login</string>
@@ -395,7 +407,7 @@ QPushButton {
             <enum>Qt::PlainText</enum>
            </property>
            <property name="pixmap">
-            <pixmap resource="resource_rc.qrc">:/pics/—Pngtree—lightning-icon-electric-logo_8832878.ico</pixmap>
+            <pixmap resource="../resource.qrc">:/logo/resources/hard shadow.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>false</bool>
@@ -453,7 +465,7 @@ QPushButton {
   </widget>
  </widget>
  <resources>
-  <include location="resource_rc.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>
