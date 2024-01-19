@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.__seed = "USTEPALCO"
-        self.__db_file = "Test//USTEPALCO.db"
+        self.__db_file = "USTEPALCO.db"
         self.__conn = sqlite3.connect(self.__db_file)
         self.__sql = self.__conn.cursor()
         self.__session_admin_uid = 0
@@ -358,9 +358,9 @@ class MainWindow(QMainWindow):
         time = str(current_date.strftime("%I:%M %p"))
         transaction_number = random.randint(99999,999999)
 
-        receipt_title = "Electricity Bill Receipt - " + date 
-        receipt_path = "D:\\Downloads\\Electricity_Bill_Receipt-" + date + str(transaction_number)
-        output_file = receipt_path +'.pdf'
+        receipt_title = "Electricity Bill Receipt - " + date + str(transaction_number)
+        receipt_path = "C:\\Electricity_Bill_Receipt-" + date + str(transaction_number)
+        output_file = receipt_title +'.pdf'
 
         items = [
             (usage, self.p_kwh, (int(usage)*self.p_kwh))
@@ -401,13 +401,18 @@ class MainWindow(QMainWindow):
             contact_no = self.ui.contactNo_edit.text()
             email = self.ui.email_edit.text()
             password = self.ui.password_edit.text()
+            
             if(password.strip() == ''):
                 password = admin_data[-1]
             else:
                 password = self.secure_password(password)
             self.__sql.execute("UPDATE admin SET admin_id = ?, full_name = ?, address = ?, phone_no = ?, email = ?, password = ? WHERE uid = ?",(admin_id, fullname, address, contact_no, email, password, uid))
             self.__conn.commit()
-        self.show_message("PROFILE UPDATED", "Your profile edits has been saved!", QMessageBox.Information)
+            self.show_message("PROFILE UPDATED", "Your profile edits has been saved!", QMessageBox.Information)
+            self.ui.profileEdit_button.setChecked(False)
+
+            
+            
 
     def on_next_button_pressed(self):     
         nextwidg = self.ui.users_StackedWidget.currentIndex() + 1
