@@ -18,6 +18,7 @@ class PDF_receipt:
                     text-align: center;
                     font-size: 18px;
                     margin-bottom: 10px;
+                    margin-top: 30px;
                 }}
                 .info {{
                     margin-bottom: 15px;
@@ -37,6 +38,7 @@ class PDF_receipt:
                     font-weight: bold;
                     text-align: right;
                 }}
+            
             </style>
         </head>
         <body>
@@ -79,7 +81,7 @@ class PDF_receipt:
         }
 
         # Set the path to wkhtmltopdf executable
-        pdfkit_config = pdfkit.configuration(wkhtmltopdf="./pages/wkhtmltopdf/bin/wkhtmltopdf.exe")
+        pdfkit_config = pdfkit.configuration(wkhtmltopdf="D:\\Documents\SCHOOL WORKS\\1ST YEAR BS CS1A\\CS112 - Computer Programming 1\\Electric Billing System\\USTEPALCO-dev\\Test\\pages\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
 
         # Pass the configuration to pdfkit
         pdfkit.from_string(html_content, output_pdf_path, options=options, configuration=pdfkit_config)
@@ -101,7 +103,7 @@ if(__name__ == "__main__"):
     ]
 
     # Generate HTML from receipt data
-    output_file = "Electricity Bill Receipt.pdf"
+    output_file = ":\\Downloads"
     PDF_receipt(receipt_title, account_number, name, address, transaction_number, date, time, items).generate(output_file)
 
 
