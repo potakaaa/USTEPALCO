@@ -26,7 +26,7 @@
    <string>Dashboard</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource.qrc">
+   <iconset>
     <normaloff>:/logo/resources/stylized_00000.png</normaloff>:/logo/resources/stylized_00000.png</iconset>
   </property>
   <property name="styleSheet">
@@ -195,7 +195,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/logo/resources/stylized_00000.png</pixmap>
+              <pixmap>:/logo/resources/stylized_00000.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -242,7 +242,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/icons/resources/ui icons/Vector123.svg</pixmap>
+              <pixmap>:/icons/resources/ui icons/Vector123.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -258,6 +258,9 @@ QPushButton {
              </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="text">
               <string>Dashboard</string>
@@ -286,7 +289,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/icons/resources/ui icons/Vector.svg</pixmap>
+              <pixmap>:/icons/resources/ui icons/Vector.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -302,6 +305,9 @@ QPushButton {
              </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="text">
               <string>Reports</string>
@@ -330,7 +336,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/icons/resources/ui icons/Icon.svg</pixmap>
+              <pixmap>:/icons/resources/ui icons/Icon.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -346,6 +352,9 @@ QPushButton {
              </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="text">
               <string>Manage Users</string>
@@ -374,7 +383,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/icons/resources/ui icons/basil_invoice-solid.svg</pixmap>
+              <pixmap>:/icons/resources/ui icons/basil_invoice-solid.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -390,6 +399,9 @@ QPushButton {
              </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="text">
               <string>Generate Bill</string>
@@ -418,7 +430,7 @@ QPushButton {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/icons/resources/ui icons/mdi_clipboard-user.svg</pixmap>
+              <pixmap>:/icons/resources/ui icons/mdi_clipboard-user.svg</pixmap>
              </property>
             </widget>
            </item>
@@ -434,6 +446,9 @@ QPushButton {
              </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="text">
               <string>Profile</string>
@@ -802,7 +817,7 @@ QPushButton {
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap resource="../resource.qrc">:/icons/resources/ui icons/asdf.svg</pixmap>
+                     <pixmap>:/icons/resources/ui icons/asdf.svg</pixmap>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -904,7 +919,7 @@ QPushButton {
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap resource="../resource.qrc">:/icons/resources/ui icons/asdfasd.svg</pixmap>
+                     <pixmap>:/icons/resources/ui icons/asdfasd.svg</pixmap>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
