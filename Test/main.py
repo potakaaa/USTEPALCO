@@ -336,9 +336,9 @@ class MainWindow(QMainWindow):
         contract_no = self.ui.conNum_edit.text().strip()
         fullname = self.ui.fullName_edit.text().strip()
         usage = self.__get_user_usage(contract_no, fullname)
-
-        self.amountDue = self.p_kwh * usage
-        self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
+        if usage != 0:
+            self.amountDue = self.p_kwh * usage
+            self.ui.billDue_edit.setText("₱ " + str(format(self.amountDue, "3.3f")))
     
     def on_print_button_pressed(self):
         current_date = datetime.now()
