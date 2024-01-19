@@ -283,7 +283,7 @@ class MainWindow(QMainWindow):
             mail = Mail(subject, content, "html")
             mail.sendto(email)
             self.__update_password(temporary_password, email)
-            self.show_message("Email Sent", "Please check your email. Thank you!", QMessageBox.Information)
+            self.show_message("EMAIL SENT", "Please check your email!", QMessageBox.Information)
 
     def page_view(self, view):
         if view == 'login':
