@@ -310,6 +310,18 @@ class MainWindow(QMainWindow):
             self.ui.stackedWidget.setCurrentIndex(1)
             self.ui.dashboard_button.setStyleSheet("#dashboard_button {\n"
             "color: white; }\n")
+
+            self.__sql.execute("SELECT COUNT(*) FROM users")
+            tot = self.__sql.fetchone()
+        
+            self.ui.dashboardUsers_count.setText(str(tot[0]))
+
+            self.__sql.execute("SELECT SUM(usage) FROM payment_det")
+            addedUsag = self.__sql.fetchone()
+
+            payCon = int(str(addedUsag)[1:len(addedUsag) - 3]) * self.p_kwh
+            self.ui.dashboardPayment_count.setText("₱ "+ str(format(payCon, ",.3f")))
+            
         else:
             self.show_message("ERROR", "Incorrect login credentials!", QMessageBox.Warning)
 
